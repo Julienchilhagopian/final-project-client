@@ -12,7 +12,7 @@ username: string;
   constructor(private authService: AuthService) {
     this.authService.getMe()
     .then((response) => {
-      console.log('ok');
+      console.log('current user data recieved from backend');
       this.username = response.username;
     })
     .catch(err => console.log(err));

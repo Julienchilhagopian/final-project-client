@@ -16,7 +16,7 @@ export class RequireAnonGuard implements CanActivate {
     return this.authService.getMe()
     .then(user => {
      if (user) {
-      //  this.router.navigate(['/profile']);
+       this.router.navigate(['/profile']);
        console.log('you are alreaaaady logged in man');
        return false;
      } else {

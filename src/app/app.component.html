@@ -1,6 +1,10 @@
 <header>
+
   here goes the header
-  <button (click)="activateLogout()">Logout</button>
+  <div *ngIf="logoutButton">
+    <button (click)="activateLogout()">Logout</button>
+  </div>
+
 </header>
 
 <router-outlet></router-outlet>
