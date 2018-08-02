@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 // ---- PAGES ---- //
 import { AppComponent } from './app.component';
 import { LogInPageComponent } from './pages/log-in-page/log-in-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 // --- SERVICES --- //
 import { AuthService } from './services/auth.service';
@@ -21,7 +22,8 @@ import { RequireAnonGuard } from './guards/require-anon.guard';
 
 const routes: Routes = [
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuard]},
-  { path: 'login', component: LogInPageComponent, canActivate: [RequireAnonGuard]}
+  { path: 'login', component: LogInPageComponent, canActivate: [RequireAnonGuard]},
+  { path: 'profile', component: ProfilePageComponent }
 ];
 
 
@@ -30,6 +32,7 @@ const routes: Routes = [
     AppComponent,
     LogInPageComponent,
     SignupPageComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,
