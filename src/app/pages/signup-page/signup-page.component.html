@@ -14,12 +14,21 @@
   
         <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
             <label>Password</label>
-            <input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"/>
+            <input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="3" [disabled]="processing"/>
             <div *ngIf="feedbackEnabled && passwordField.errors">
               <p *ngIf="passwordField.errors.required" class="validation">password required</p>
               <p *ngIf="passwordField.errors.minlength" class="validation">password is too short</p>
             </div>
           </div>
+
+          <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
+              <label>Email</label>
+              <input type="email" name="email" [(ngModel)]="email" #emailField="ngModel" required minlength="3" [disabled]="processing"/>
+              <div *ngIf="feedbackEnabled && emailField.errors">
+                <p *ngIf="emailField.errors.required" class="validation">password required</p>
+                <p *ngIf="emailField.errors.minlength" class="validation">password is too short</p>
+              </div>
+            </div>
       
         <div class="field submit">
           <button type="submit" [disabled]="processing">Signup</button>
