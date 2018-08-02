@@ -1,0 +1,39 @@
+
+<div>
+  <h1> Login </h1>
+
+  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
+        <label>Username</label>
+        <input type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required [disabled]="processing"/>
+      </div>
+
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
+          <label>Password</label>
+          <input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required [disabled]="processing"/>
+        </div>
+    
+      <div class="field submit">
+        <button type="submit" [disabled]="processing">Signup</button>
+        <div *ngIf="feedbackEnabled && form.invalid">
+          <p class="validation">there are errors in the form, please review the fields</p>
+        </div>
+      </div>
+
+      <div *ngIf="error" class="validation">
+        <div [ngSwitch]="error.code">
+          <p *ngSwitchCase="'not-found'"> u forgot your username or password bitch</p>
+          <p *ngSwitchDefault> unexpected error get out of here</p>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- <a [routerLink]="['/signup']">You dont have account go create one</a> -->
+
+</div>
+
+
+
+
