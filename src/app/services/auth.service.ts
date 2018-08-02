@@ -9,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 private baseUrl = 'http://localhost:3000/auth';
 
-
   constructor(private httpClient: HttpClient) {}
 
   getMe() {
@@ -52,7 +51,13 @@ private baseUrl = 'http://localhost:3000/auth';
       .toPromise();
    }
 
+   logout () {
+    const options = {
+      withCredentials: true
+    };
 
-
+    return this.httpClient.post(`${this.baseUrl}/logout`, {}, options)
+      .toPromise();
+   }
 
 }
