@@ -36,8 +36,8 @@
   - /add-bike 
   - /bike-detail
   
-  - /select-bike
-  - /add-location
+  - /select-bike -> where ?
+
   
   
 
@@ -81,10 +81,10 @@
 
 ## Components
 
-- bike list.
-- bike card.
-- @output report 
-- @output park 
+- location bar.
+- bike-park-form.
+- @output changeLocation(location)
+- @output park(location)
 
 ## IO
 
@@ -98,7 +98,6 @@
 - /add-bike user 
 - /bike-detail user 
 - /select-bike user 
-- /add-location user
 - /report init
 
 
@@ -160,11 +159,13 @@
   - POST /auth/login
   - GET /auth/me
 
-  - POST /add-bike
-  - PUT /report
-  - PUT /add-location
-  - PUT /bike/:id/unpark
+  - POST /bike (data) --> createOne(data)
+  - PUT /bike/:id/report (empty) --> reportOne(id)
+  - PUT /bike/:id/status (status, location ?) --> updateParkStatus(id, status, location)
   
-  - GET/bike/location
-  - GET/bike/mine
-  - GET/bike/:id 
+  - GET/bike?location=location --> getAllByLocation(location)
+  - GET/bike/mine --> getMine(ownerName)
+  - GET/bike/:id --> getOne(id)
+  
+  
+  ## OUTSIDE MVP
