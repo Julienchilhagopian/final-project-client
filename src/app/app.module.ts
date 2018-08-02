@@ -14,13 +14,14 @@ import { AuthService } from './services/auth.service';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 // ---- GUARDS ---- //
+import { RequireAnonGuard } from './guards/require-anon.guard';
 
 
 // ---- ROUTES ---- //
 
 const routes: Routes = [
-  { path: 'login', component: LogInPageComponent},
-  { path: 'signup', component: SignupPageComponent},
+  { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuard]},
+  { path: 'login', component: LogInPageComponent, canActivate: [RequireAnonGuard]}
 ];
 
 
@@ -37,7 +38,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    AuthService
+    AuthService,
+    RequireAnonGuard
   ],
   bootstrap: [AppComponent]
 })

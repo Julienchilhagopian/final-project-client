@@ -21,10 +21,10 @@
             </div>
           </div>
 
-          <div class="field">
-              <label>Email</label>
-              <input type="email" name="email" [(ngModel)]="email" #emailField="ngModel" required minlength="3" [disabled]="processing"/>
-            </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" name="email" [(ngModel)]="email" required minlength="3" [disabled]="processing"/>
+        </div>
       
         <div class="field submit">
           <button type="submit" [disabled]="processing">Signup</button>
