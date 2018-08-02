@@ -16,6 +16,7 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 // ---- GUARDS ---- //
 import { RequireAnonGuard } from './guards/require-anon.guard';
+import { RequireUserGuard } from './guards/require-user.guard';
 
 
 // ---- ROUTES ---- //
@@ -23,7 +24,7 @@ import { RequireAnonGuard } from './guards/require-anon.guard';
 const routes: Routes = [
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuard]},
   { path: 'login', component: LogInPageComponent, canActivate: [RequireAnonGuard]},
-  { path: 'profile', component: ProfilePageComponent }
+  { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuard] }
 ];
 
 
@@ -42,7 +43,8 @@ const routes: Routes = [
   ],
   providers: [
     AuthService,
-    RequireAnonGuard
+    RequireAnonGuard,
+    RequireUserGuard
   ],
   bootstrap: [AppComponent]
 })
