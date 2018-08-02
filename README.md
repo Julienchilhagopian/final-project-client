@@ -9,13 +9,17 @@
   **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
   
   **Signup:** As an anon I can sign up in the platform so that I can start saving favorite restaurants
+  
   **Login:** As a user I can login to the platform so that I can see my favorite restaurants.
+  
   **Logout:** As a user I can logout from the platform so I can stop using it 
   
   **Profile:** As a user I would like to see my profile and manage my bike collection.
+  
   **Add bikes:** As a user I can add bikes to my collection.
   
   **See bike details:** As a user I can see my bikes details.
+  
   **Park my bike:** As a user I can inform that my bike is parked and what is the bike location.
   
   **Report:** As a user I can report that a bike is trying to be stolen.
