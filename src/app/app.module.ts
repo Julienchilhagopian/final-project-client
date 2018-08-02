@@ -11,6 +11,7 @@ import { LogInPageComponent } from './pages/log-in-page/log-in-page.component';
 
 // --- SERVICES --- //
 import { AuthService } from './services/auth.service';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 // ---- GUARDS ---- //
 
@@ -18,7 +19,8 @@ import { AuthService } from './services/auth.service';
 // ---- ROUTES ---- //
 
 const routes: Routes = [
-  { path: 'login', component: LogInPageComponent}
+  { path: 'login', component: LogInPageComponent},
+  { path: 'signup', component: SignupPageComponent},
 ];
 
 
@@ -26,6 +28,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LogInPageComponent,
+    SignupPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,4 +41,5 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

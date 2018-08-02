@@ -28,7 +28,17 @@ private baseUrl = 'http://localhost:3000/auth';
       });
    }
 
-  // Sign up here
+   signup (username: string, password: string) {
+    const options = {
+      withCredentials: true
+    };
+    const data = {
+      username,
+      password
+    };
+    return this.httpClient.post(`${this.baseUrl}/signup`, data, options)
+      .toPromise();
+   }
 
   login (username: string, password: string) {
     const options = {
