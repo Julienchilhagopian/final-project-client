@@ -15,4 +15,17 @@ body {
 }
 
 
-/* ---- reset ---- */
+/* ---- Home page ---- */
+
+.navbar {
+  background-color: #191919;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 0px 8px;
+}

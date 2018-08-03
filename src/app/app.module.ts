@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LogInPageComponent } from './pages/log-in-page/log-in-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 // ---- OVERLAYS ---- //
 import { AddBikeComponent } from './overlays/add-bike/add-bike.component';
@@ -22,11 +23,13 @@ import { BikeService } from './services/bike.service';
 // ---- GUARDS ---- //
 import { RequireAnonGuard } from './guards/require-anon.guard';
 import { RequireUserGuard } from './guards/require-user.guard';
+import { InitAuthGuard } from './guards/auth-init.guard';
 
 
 // ---- ROUTES ---- //
 
 const routes: Routes = [
+  {path: '', component: HomePageComponent, canActivate: [InitAuthGuard] },
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuard]},
   { path: 'login', component: LogInPageComponent, canActivate: [RequireAnonGuard]},
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuard] }
@@ -40,6 +43,7 @@ const routes: Routes = [
     SignupPageComponent,
     ProfilePageComponent,
     AddBikeComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,8 @@ const routes: Routes = [
     AuthService,
     RequireAnonGuard,
     RequireUserGuard,
-    BikeService
+    BikeService,
+    InitAuthGuard
   ],
   bootstrap: [AppComponent]
 })

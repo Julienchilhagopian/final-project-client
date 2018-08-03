@@ -1,18 +1,25 @@
 <header>
-  <div *ngIf="loaded">
-    <div *ngIf="user">
-      {{user.username}}
-      <button (click)="triggerLogout()">Logout</button>
+  
+  <div class="navbar">
+      <div *ngIf="loading">
+        <span class="username text">loading...</span>
+      </div>
+      <div *ngIf="!loading && !!user">
+        <a [routerLink]="['/profile']">hey, {{user.username}}</a>
+        <button (click)="triggerLogout()">Logout</button>
+      </div>
+      <div *ngIf="!loading && anon" class="">
+        <a [routerLink]="['/login']">login</a>
+        <a [routerLink]="['/signup']">signup</a>
+      </div>
     </div>
-    <div *ngIf="!user">
-      login / signup
-    </div>
-  </div>
-      
+
 </header>
+
 
 <router-outlet></router-outlet>
 
+
 <footer>
-  damn footer
+  hey footer
 </footer>
