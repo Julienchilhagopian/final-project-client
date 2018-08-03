@@ -3,17 +3,17 @@
   <h1> Here you will see your bikes </h1>
 
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && colorField.errors}">
         <label>Bike color :</label>
-        <input type="text" name="bikeColor" [(ngModel)]="bikeColor" #bikeColorField="ngModel" [disabled]="processing"/>
-        <div *ngIf="feedbackEnabled && bikeColorField.errors">
-          <p *ngIf="bikeColorField.errors.required" class="validation"> Please enter the color of your bike</p>
+        <input type="text" name="color" [(ngModel)]="color" #colorField="ngModel" [disabled]="processing" required/>
+        <div *ngIf="feedbackEnabled && colorField.errors">
+          <p *ngIf="colorField.errors.required" class="validation"> Please enter the color of your bike</p>
         </div>
       </div>
 
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && brandField.errors}">
         <label>Brand of your bike : </label>
-        <input type="text" name="brand" [(ngModel)]="brand" #brandField="ngModel" required minlength="2" [disabled]="processing"/>
+        <input type="text" name="brand" [(ngModel)]="brand" #brandField="ngModel" minlength="2" [disabled]="processing" required/>
         <div *ngIf="feedbackEnabled && brandField.errors">
           <p *ngIf="brandField.errors.required" class="validation">brand name is required</p>
           <p *ngIf="brandField.errors.minlength" class="validation">brand name is too short</p>

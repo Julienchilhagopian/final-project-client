@@ -16,6 +16,8 @@ import { AddBikeComponent } from './overlays/add-bike/add-bike.component';
 // --- SERVICES --- //
 import { AuthService } from './services/auth.service';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { BikeService } from './services/bike.service';
+
 
 // ---- GUARDS ---- //
 import { RequireAnonGuard } from './guards/require-anon.guard';
@@ -48,7 +50,8 @@ const routes: Routes = [
   providers: [
     AuthService,
     RequireAnonGuard,
-    RequireUserGuard
+    RequireUserGuard,
+    BikeService
   ],
   bootstrap: [AppComponent]
 })

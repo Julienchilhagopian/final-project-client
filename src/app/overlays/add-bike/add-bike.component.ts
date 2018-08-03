@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BikeService } from '../../services/bike.service';
+
+
 
 @Component({
   selector: 'app-add-bike',
@@ -13,10 +16,13 @@ export class AddBikeComponent implements OnInit {
   error = null;
   processing = false;
 
-  bikeColor: string;
+  color: string;
   brand: string;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private bikeService: BikeService
+  ) {}
 
   ngOnInit() {
   }
@@ -31,22 +37,23 @@ export class AddBikeComponent implements OnInit {
     }
   }
 
-  // submitForm(form) {
-  //   this.error = '';
-  //   this.feedbackEnabled = true;
-  //   if (form.valid) {
-  //     this.processing = true;
-  //     this.createOneService.signup(this.bikeColor, this.brand)
-  //       .then((result) => {
-  //        this.router.navigate(['/profile']);
-  //       })
-  //       .catch((err) => {
-  //         this.error = err.error;
-  //         this.processing = false;
-  //         this.feedbackEnabled = false;
-  //       });
-  //   }
-  // }
+  submitForm(form) {
+    this.error = '';
+    this.feedbackEnabled = true;
+
+    if (form.valid) {
+      this.processing = true;
+      this.bikeService.createBike(this.color, this.brand)
+        .then((result) => {
+         this.router.navigate(['/profile']);
+        })
+        .catch((err) => {
+          this.error = err.error;
+          this.processing = false;
+          this.feedbackEnabled = false;
+        });
+    }
+  }
 
 
 }
