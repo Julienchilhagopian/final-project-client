@@ -136,7 +136,7 @@
 
   ```
   Bike {
-  ownerId: {
+  userId: {
     type: ObjectId
   },
   brand: {

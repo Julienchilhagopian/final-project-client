@@ -1,0 +1,41 @@
+<section [ngClass]="{ 'hide': showOverlay }">
+
+  <h1> Here you will see your bikes </h1>
+
+  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
+        <label>Bike color :</label>
+        <input type="text" name="bikeColor" [(ngModel)]="bikeColor" #bikeColorField="ngModel" [disabled]="processing"/>
+        <div *ngIf="feedbackEnabled && bikeColorField.errors">
+          <p *ngIf="bikeColorField.errors.required" class="validation"> Please enter the color of your bike</p>
+        </div>
+      </div>
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
+        <label>Brand of your bike : </label>
+        <input type="text" name="brand" [(ngModel)]="brand" #brandField="ngModel" required minlength="2" [disabled]="processing"/>
+        <div *ngIf="feedbackEnabled && brandField.errors">
+          <p *ngIf="brandField.errors.required" class="validation">brand name is required</p>
+          <p *ngIf="brandField.errors.minlength" class="validation">brand name is too short</p>
+        </div>
+      </div>
+
+    <div class="field submit">
+        <button type="submit" [disabled]="processing">Create a bike</button>
+        <div *ngIf="feedbackEnabled && form.invalid">
+          <p class="validation">there are errors in the form, please review the fields</p>
+        </div>
+      </div>
+
+      <div *ngIf="error" class="validation">
+          <div [ngSwitch]="error.code">
+            <p *ngSwitchDefault> unexpected error get out of here</p>
+          </div>
+        </div>
+  </form>
+
+</section>
+
+
+
+<button (click)="toggleOverlay()"> {{addButtonText}} </button>

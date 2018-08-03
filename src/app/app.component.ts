@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { Router } from '../../node_modules/@angular/router';
 
@@ -7,38 +7,29 @@ import { Router } from '../../node_modules/@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
-  logoutButton = false;
+  user: any;
+  showLogoutButton = false;
 
 constructor (
   private authService: AuthService,
   private router: Router
-) {
- this.displayLogoutButton();
+) {}
+
+ngOnInit() {
+  this.authService.userChange$.subscribe((user) => {
+  this.user = user;
+  });
 }
 
-  activateLogout() {
+  triggerLogout() {
     this.authService.logout()
     .then(() => {
       this.router.navigate(['']);
     })
     .catch((err) => {
       console.log(err);
-    });
-  }
-
-  displayLogoutButton () {
-    this.authService.getMe()
-    .then(user => {
-     if (!user) {
-       this.logoutButton = false;
-     } else {
-      this.logoutButton = true;
-     }
-   })
-   .catch((err) => {
-     console.log(err);
     });
   }
 

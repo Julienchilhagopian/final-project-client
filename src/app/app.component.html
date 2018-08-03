@@ -1,8 +1,8 @@
 <header>
 
   here goes the header
-  <div *ngIf="logoutButton">
-    <button (click)="activateLogout()">Logout</button>
+  <div *ngIf="user">
+    <button (click)="triggerLogout()">Logout</button>
   </div>
 
 </header>

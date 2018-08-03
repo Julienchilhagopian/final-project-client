@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { LogInPageComponent } from './pages/log-in-page/log-in-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
+// ---- OVERLAYS ---- //
+import { AddBikeComponent } from './overlays/add-bike/add-bike.component';
+
 // --- SERVICES --- //
 import { AuthService } from './services/auth.service';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
@@ -34,6 +37,7 @@ const routes: Routes = [
     LogInPageComponent,
     SignupPageComponent,
     ProfilePageComponent,
+    AddBikeComponent,
   ],
   imports: [
     BrowserModule,
