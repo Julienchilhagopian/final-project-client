@@ -14,12 +14,18 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
+/* ---- TOOLS ---- */
 
+.reset-button {
+  outline: none;
+  background: none;
+  border: none;
+}
 /* ---- Home page ---- */
 
 .navbar {
   background-color: #191919;
-  height: 7vh;
+  height: 9vh;
   display: flex;
   align-items: center;
 }
@@ -27,5 +33,86 @@ body {
 .navbar a {
   color: white;
   text-decoration: none;
-  padding: 0px 8px;
+  margin: 0px 8px;
+
+}
+
+.home-button button{
+  padding: 30px 70px;
+  margin: 30px 0px;
+  border: 1px solid;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.home-button {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+
+/* ---- Style on router outlet ---- */
+
+.container {
+  height: 90vh;
+
+}
+
+
+
+/* ---- classic bootcamp ---- */
+
+
+.auth-container {
+  padding: 0px 15px;
+  background-color: #EFEFEF;
+  height: 90vh;
+  color: #777777;
+}
+
+.auth-container h1,
+.auth-container h3 {
+  color: black;
+  margin-top: 0;
+  padding-top: 31px;
+}
+
+.field input {
+  outline: none;
+  border: 1px solid #bebebe;
+  padding: 17px 8px; 
+  margin: 10px 0px;
+  font-size: 15px; 
+  width: 100%;
+  background-color: #F3F3F3;
+}
+
+.submit button {
+  background-color: rgb(202, 17, 52);
+  color: white;
+  padding: 10px 26px;
+  font-size: 15px;
+  margin-top: 13px;
+}
+
+.create-account p:first-child{
+  font-weight: bold;
+}
+
+.create-account {
+  margin-top: 50px;
+}
+
+/* ---- footer ---- */
+footer {
+  height: 20vh;
+  background-color: #191919;
+  color: white;
 }

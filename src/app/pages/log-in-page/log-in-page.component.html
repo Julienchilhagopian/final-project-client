@@ -1,36 +1,42 @@
 
-<div>
-  <h1> Login </h1>
+<div class="auth-container">
+  <h1> Login to your account </h1>
+  
 
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-      <label>Username</label>
-      <input type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required [disabled]="processing"/>
+      <label></label>
+      <input placeholder="Username" type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required [disabled]="processing"/>
      </div>
 
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
-        <label>Password</label>
-        <input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required [disabled]="processing"/>
+        <label></label>
+        <input placeholder="Password" type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required [disabled]="processing"/>
       </div>
     
     <div class="field submit">
-      <button type="submit" [disabled]="processing">Enter</button>
+      <button type="submit" [disabled]="processing" class="reset-button">Log in</button>
       <div *ngIf="feedbackEnabled && form.invalid">
-        <p class="validation">there are errors in the form, please review the fields</p>
+        <p class="validation">There are errors in the form, please review the fields</p>
       </div>
     </div>
 
     <div *ngIf="error" class="validation">
       <div [ngSwitch]="error.code">
-        <p *ngSwitchCase="'not-found'"> u forgot your username or password bitch</p>
-        <p *ngSwitchDefault> unexpected error get out of here</p>
+        <p *ngSwitchCase="'not-found'"> You forgot your username or password</p>
+        <p *ngSwitchDefault> Unexpected error get out of here</p>
       </div>
     </div>
 
   </form>
 
-    <a [routerLink]="['/signup']">You dont have account go create one</a>
+    <div class="submit create-account">
+      <h3>New here ? </h3>
+      <p>Creating an account is easy. Just fill out the form and enjoy ! </p>
+       <a [routerLink]="['/signup']"><button class="reset-button">Create account now</button></a>
+    </div>
+
 
 </div>
 

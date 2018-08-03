@@ -1,11 +1,11 @@
-<div>
+<div class="auth-container">
     <h1> Signup </h1>
   
     <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
   
         <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-          <label>Username</label>
-          <input type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required minlength="6" [disabled]="processing"/>
+          <label></label>
+          <input placeholder="Username" type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required minlength="6" [disabled]="processing"/>
           <div *ngIf="feedbackEnabled && usernameField.errors">
             <p *ngIf="usernameField.errors.required" class="validation">username required</p>
             <p *ngIf="usernameField.errors.minlength" class="validation">username is too short</p>
@@ -13,8 +13,8 @@
         </div>
   
         <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
-            <label>Password</label>
-            <input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="3" [disabled]="processing"/>
+            <label></label>
+            <input placeholder="Password" type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="3" [disabled]="processing"/>
             <div *ngIf="feedbackEnabled && passwordField.errors">
               <p *ngIf="passwordField.errors.required" class="validation">password required</p>
               <p *ngIf="passwordField.errors.minlength" class="validation">password is too short</p>
@@ -22,8 +22,8 @@
           </div>
 
         <div class="field">
-          <label>Email</label>
-          <input type="email" name="email" [(ngModel)]="email" required minlength="3" [disabled]="processing"/>
+          <label></label>
+          <input placeholder="Email" type="email" name="email" [(ngModel)]="email" required minlength="3" [disabled]="processing"/>
         </div>
       
         <div class="field submit">

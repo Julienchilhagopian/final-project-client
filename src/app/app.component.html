@@ -9,16 +9,17 @@
         <button (click)="triggerLogout()">Logout</button>
       </div>
       <div *ngIf="!loading && anon" class="">
-        <a [routerLink]="['/login']">login</a>
+        <a [routerLink]="['/login']">log in</a>
         <a [routerLink]="['/signup']">signup</a>
+        <a [routerLink]="['/']">home</a>
       </div>
     </div>
 
 </header>
 
-
+<div class="container">
 <router-outlet></router-outlet>
-
+</div>
 
 <footer>
   hey footer
