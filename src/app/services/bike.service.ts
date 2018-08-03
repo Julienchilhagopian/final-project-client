@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BikeService {
-  private baseUrl = 'http://localhost:3000';
-
+  private baseUrl = 'http://localhost:3000/bike';
+  private myBikes: any;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -22,7 +22,16 @@ export class BikeService {
       brand
     };
 
-    return this.httpClient.post(`${this.baseUrl}/bike`, data, options)
+    return this.httpClient.post(`${this.baseUrl}`, data, options)
     .toPromise();
   }
+
+  getMine() {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/mine`, options)
+    .toPromise();
+  }
+
 }

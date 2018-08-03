@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { BikeService } from '../../services/bike.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -8,17 +9,23 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ProfilePageComponent implements OnInit {
 username: string;
+currentUserId: string;
+bikes: any;
 
-  constructor(private authService: AuthService) {
-    this.authService.getMe()
-    .then((response) => {
-      console.log('current user data recieved from backend');
-      this.username = response.username;
-    })
-    .catch(err => console.log(err));
+  constructor(
+    private authService: AuthService,
+    private bikeService: BikeService
+  ) {
+  this.username = this.authService.getUser().username;
+
+  this.bikeService.getMine()
+  .then((result) => {
+    this.bikes = result;
+  })
+  .catch(err => console.log(err));
+
+
   }
-
   ngOnInit() {}
-
 
 }

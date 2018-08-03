@@ -8,6 +8,7 @@ import { Router } from '../../node_modules/@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  loaded = false;
   title = 'app';
   user: any;
   showLogoutButton = false;
@@ -19,7 +20,8 @@ constructor (
 
 ngOnInit() {
   this.authService.userChange$.subscribe((user) => {
-  this.user = user;
+    this.user = user;
+    this.loaded = true;
   });
 }
 

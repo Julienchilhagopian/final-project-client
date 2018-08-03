@@ -3,7 +3,12 @@
 </p>
 
 <h1>Welcome, {{username}}</h1>
-
 <p> You will see your bikes here.. </p>
+
+<div *ngFor="let item of bikes">
+  <h2>color: {{item.color}}</h2>
+  <p>brand: {{item.brand}}</p>
+</div> 
+
 
 <app-add-bike></app-add-bike>

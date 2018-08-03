@@ -33,6 +33,7 @@ userChange$: Observable<any> = this.userChange.asObservable();
       .then((user) => this.setUser(user))
       .catch((err) => {
         if (err.status === 404) {
+          this.setUser();
           return null;
         } else {
           Promise.reject(new Error('unexpected error'));
@@ -76,5 +77,9 @@ userChange$: Observable<any> = this.userChange.asObservable();
       .toPromise()
       .then(() => this.setUser());
    }
+
+   getUser(): any {
+    return this.user;
+  }
 
 }
