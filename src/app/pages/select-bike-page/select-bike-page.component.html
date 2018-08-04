@@ -5,8 +5,9 @@
     <div *ngFor="let item of bikes" class="bike-item">
         <h2>{{item.color}}</h2>
         <p>{{item.brand}}</p>
+        <button (click)="handleId(item._id)">give me id</button>
       </div> 
-
-</section>
-
-<app-bike-park-form></app-bike-park-form>
+      
+    </section>
+    
+    <app-bike-park-form></app-bike-park-form>

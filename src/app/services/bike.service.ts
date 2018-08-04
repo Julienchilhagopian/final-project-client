@@ -14,12 +14,25 @@ export class BikeService {
   private bikesChange: Subject<any> = new Subject();
   bikesChange$: Observable<any> = this.bikesChange.asObservable();
 
+  private getBikeIdSubject: Subject<any> = new Subject();
+  getBikeId$: Observable<any> = this.getBikeIdSubject.asObservable();
+
   constructor(private httpClient: HttpClient) {}
 
   private setBikes(bikes?: any) {
     this.bikes = bikes;
     this.bikesChange.next(bikes);
     return bikes;
+  }
+
+  getOne() {
+    const options = {
+      withCredentials: true
+    };
+
+    return this.httpClient.get(`${this.baseUrl}/:id`, options)
+    .toPromise();
+
   }
 
   createBike (color: string, brand: string) {
@@ -51,7 +64,10 @@ export class BikeService {
     };
 
     console.log('work in progress');
-
-
   }
+
+  getBikeId(id) {
+    this.getBikeIdSubject.next(id);
+  }
+
 }

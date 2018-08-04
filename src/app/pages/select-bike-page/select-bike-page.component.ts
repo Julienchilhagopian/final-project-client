@@ -8,6 +8,7 @@ import { BikeService } from '../../services/bike.service';
 })
 export class SelectBikePageComponent implements OnInit {
   bikes: any;
+  bikeId: any;
 
   constructor(private bikeService: BikeService) {
     this.bikeService.getMine()
@@ -18,6 +19,11 @@ export class SelectBikePageComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  handleId(id) {
+    this.bikeId = id;
+    this.bikeService.getBikeId(id);
   }
 
 
