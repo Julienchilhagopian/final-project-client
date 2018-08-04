@@ -1,9 +1,6 @@
 <header>
   
   <div class="navbar">
-      <div *ngIf="loading">
-        <span class="username text">loading...</span>
-      </div>
       <div *ngIf="!loading && !!user">
         <a [routerLink]="['/profile']">hey, {{user.username}}</a>
         <button (click)="triggerLogout()">Logout</button>
@@ -11,8 +8,8 @@
       <div *ngIf="!loading && anon" class="">
         <a [routerLink]="['/login']">log in</a>
         <a [routerLink]="['/signup']">signup</a>
-        <a [routerLink]="['/']">home</a>
       </div>
+      <a [routerLink]="['/']">home</a>
     </div>
 
 </header>

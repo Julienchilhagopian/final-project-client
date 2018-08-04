@@ -12,20 +12,32 @@ username: string;
 currentUserId: string;
 bikes: any;
 
+
   constructor(
     private authService: AuthService,
     private bikeService: BikeService
   ) {
   this.username = this.authService.getUser().username;
+  this.showMyBikes();
+}
 
+ngOnInit() {
+  this.bikeService.bikesChange$.subscribe((bikes) => {
+    console.log(bikes);
+
+    if (bikes instanceof Array) {
+      this.bikes = bikes;
+    } // ERROR TO SOLVE
+  });
+}
+
+showMyBikes () {
   this.bikeService.getMine()
   .then((result) => {
-    this.bikes = result;
+   this.bikes = result;
   })
   .catch(err => console.log(err));
+}
 
-
-  }
-  ngOnInit() {}
 
 }

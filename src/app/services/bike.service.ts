@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subject, Observable} from 'rxjs';
 
 
 @Injectable({
@@ -7,10 +8,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BikeService {
   private baseUrl = 'http://localhost:3000/bike';
-  private myBikes: any;
+
+  private bikes: any;
+
+  private bikesChange: Subject<any> = new Subject();
+  bikesChange$: Observable<any> = this.bikesChange.asObservable();
 
   constructor(private httpClient: HttpClient) {}
 
+  private setBikes(bikes?: any) {
+    this.bikes = bikes;
+    this.bikesChange.next(bikes);
+    return bikes;
+  }
 
   createBike (color: string, brand: string) {
     const options = {
@@ -21,9 +31,9 @@ export class BikeService {
       color,
       brand
     };
-
     return this.httpClient.post(`${this.baseUrl}`, data, options)
-    .toPromise();
+    .toPromise()
+    .then((bikes) => this.setBikes(bikes));
   }
 
   getMine() {
@@ -31,7 +41,8 @@ export class BikeService {
       withCredentials: true
     };
     return this.httpClient.get(`${this.baseUrl}/mine`, options)
-    .toPromise();
+    .toPromise()
+    .then((bikes) => this.setBikes(bikes));
   }
 
 }

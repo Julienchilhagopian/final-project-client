@@ -47,6 +47,7 @@ export class AddBikeComponent implements OnInit {
         .then((result) => {
          this.router.navigate(['/profile']);
          this.toggleOverlay();
+         this.bikeService.getMine();
         })
         .catch((err) => {
           this.error = err.error;
