@@ -1,14 +1,17 @@
-<p>
-  profile-page works!
-</p>
+<section class="profile-container">
 
-<h1>Welcome, {{username}}</h1>
-<p> You will see your bikes here.. </p>
+    <h1>Your bikes</h1>
 
-<div *ngFor="let item of bikes">
-  <h2>color: {{item.color}}</h2>
-  <p>brand: {{item.brand}}</p>
-</div> 
+  <div class="profile-bar">
+    <p>Color</p>
+    <p>Brand</p>
+    <p>Action</p>
+  </div>
+    <div *ngFor="let item of bikes" class="bike-item">
+      <h2>{{item.color}}</h2>
+      <p>{{item.brand}}</p>
+    </div> 
+</section>
 
 
 <app-add-bike></app-add-bike>

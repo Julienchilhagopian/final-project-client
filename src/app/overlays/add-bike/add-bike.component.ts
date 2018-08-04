@@ -11,7 +11,7 @@ import { BikeService } from '../../services/bike.service';
 })
 export class AddBikeComponent implements OnInit {
   showOverlay = true;
-  addButtonText = 'Add bike';
+  addButtonText = '+';
   feedbackEnabled = false;
   error = null;
   processing = false;
@@ -31,9 +31,9 @@ export class AddBikeComponent implements OnInit {
   toggleOverlay() {
     this.showOverlay = !this.showOverlay;
     if (!this.showOverlay) {
-      this.addButtonText = 'Go back';
+      this.addButtonText = '-';
     } else {
-      this.addButtonText = 'Add bike';
+      this.addButtonText = '+';
     }
   }
 
@@ -46,6 +46,7 @@ export class AddBikeComponent implements OnInit {
       this.bikeService.createBike(this.color, this.brand)
         .then((result) => {
          this.router.navigate(['/profile']);
+         this.toggleOverlay();
         })
         .catch((err) => {
           this.error = err.error;

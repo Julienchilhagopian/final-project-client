@@ -62,7 +62,6 @@ body {
 
 .container {
   height: 90vh;
-
 }
 
 
@@ -108,6 +107,83 @@ body {
 
 .create-account {
   margin-top: 50px;
+}
+
+/* ---- Profile page ---- */
+
+.profile-container {
+  border: 1px solid #dcdcdc;
+  margin: 20px 30px;
+}
+
+.profile-container h1 {
+  background-color: #e3e3e3;
+  border: 1px solid #dcdcdc;
+  margin: 0;
+  padding: 32px 48px;
+}
+
+.profile-bar {
+  border-bottom: 1px solid #dcdcdc; 
+  display: flex;
+  justify-content: space-around;
+  padding: 16px 18px;
+}
+
+.profile-bar p {
+  margin: 0
+}
+
+.bike-item {
+  border-bottom: 1px solid #dcdcdc; 
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.bike-item:last-child {
+  border: none;
+}
+
+/* ---- Add bike overlay  ---- */
+.add-bike-overlay {
+  border: 1px solid #dcdcdc;
+  background-color: #F3F3F3;
+  border-radius: 5px;
+  padding: 7px;
+  width: 60%;
+  position: fixed;
+  bottom: 3%;
+  left: 20%;
+}
+
+.add-bike-overlay h1 {
+  margin: 10px 0px;
+}
+
+.add-bike-form input {
+  background-color: white;
+  padding: 12px 8px;
+}
+
+
+.add-bike-form .submit {
+  text-align: center;
+}
+
+.add-button {
+  background-color: #1DB954;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 30px;
+  border-radius: 50%;
+  position: fixed;
+  left: 82%;
+  bottom: 2%;
+  width: 15%;
+  height: 8%;
+  text-align: center;
 }
 
 /* ---- footer ---- */

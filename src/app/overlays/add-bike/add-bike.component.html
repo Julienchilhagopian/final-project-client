@@ -1,41 +1,42 @@
-<section [ngClass]="{ 'hide': showOverlay }">
+<section [ngClass]="{ 'hide': showOverlay }" class="add-bike-overlay">
 
-  <h1> Here you will see your bikes </h1>
+  <h1> Add a bike </h1>
 
-  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="add-bike-form">
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && colorField.errors}">
-        <label>Bike color :</label>
-        <input type="text" name="color" [(ngModel)]="color" #colorField="ngModel" [disabled]="processing" required/>
+        <label></label>
+        <input placeholder="Bike color"  type="text" name="color" [(ngModel)]="color" #colorField="ngModel" [disabled]="processing" required/>
         <div *ngIf="feedbackEnabled && colorField.errors">
           <p *ngIf="colorField.errors.required" class="validation"> Please enter the color of your bike</p>
         </div>
       </div>
 
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && brandField.errors}">
-        <label>Brand of your bike : </label>
-        <input type="text" name="brand" [(ngModel)]="brand" #brandField="ngModel" minlength="2" [disabled]="processing" required/>
+        <label></label>
+        <input placeholder="Brand of your bike" type="text" name="brand" [(ngModel)]="brand" #brandField="ngModel" minlength="2" [disabled]="processing" required/>
         <div *ngIf="feedbackEnabled && brandField.errors">
-          <p *ngIf="brandField.errors.required" class="validation">brand name is required</p>
-          <p *ngIf="brandField.errors.minlength" class="validation">brand name is too short</p>
+          <p *ngIf="brandField.errors.required" class="validation">Brand name is required</p>
+          <p *ngIf="brandField.errors.minlength" class="validation">Brand name is too short</p>
         </div>
       </div>
 
     <div class="field submit">
-        <button type="submit" [disabled]="processing">Create a bike</button>
+        <button type="submit" [disabled]="processing" class="reset-button">Create a bike</button>
         <div *ngIf="feedbackEnabled && form.invalid">
-          <p class="validation">there are errors in the form, please review the fields</p>
+          <p class="validation">There are errors in the form, please review the fields</p>
         </div>
       </div>
 
       <div *ngIf="error" class="validation">
           <div [ngSwitch]="error.code">
-            <p *ngSwitchDefault> unexpected error get out of here</p>
+            <p *ngSwitchDefault> Unexpected error get out of here</p>
           </div>
         </div>
   </form>
 
+  
 </section>
 
+<button class="add-button" (click)="toggleOverlay()"> {{addButtonText}} </button>
 
 
-<button (click)="toggleOverlay()"> {{addButtonText}} </button>
