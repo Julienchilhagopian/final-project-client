@@ -10,7 +10,7 @@ import { BikeService } from '../../services/bike.service';
   styleUrls: ['./add-bike.component.css']
 })
 export class AddBikeComponent implements OnInit {
-  showOverlay = true;
+  showOverlay = false;
   addButtonText = '+';
   feedbackEnabled = false;
   error = null;
@@ -31,9 +31,9 @@ export class AddBikeComponent implements OnInit {
   toggleOverlay() {
     this.showOverlay = !this.showOverlay;
     if (!this.showOverlay) {
-      this.addButtonText = '-';
-    } else {
       this.addButtonText = '+';
+    } else {
+      this.addButtonText = '-';
     }
   }
 

@@ -8,16 +8,12 @@ import { BikeService } from '../../services/bike.service';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-username: string;
-currentUserId: string;
 bikes: any;
-
 
   constructor(
     private authService: AuthService,
     private bikeService: BikeService
   ) {
-  this.username = this.authService.getUser().username;
   this.showMyBikes();
 }
 

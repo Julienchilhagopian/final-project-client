@@ -1,0 +1,12 @@
+<section class="select-bike-container profile-container">
+
+  <h1>Select which bike to park</h1>
+  
+    <div *ngFor="let item of bikes" class="bike-item">
+        <h2>{{item.color}}</h2>
+        <p>{{item.brand}}</p>
+      </div> 
+
+</section>
+
+<app-bike-park-form></app-bike-park-form>

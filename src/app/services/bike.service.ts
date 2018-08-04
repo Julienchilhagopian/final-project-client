@@ -45,4 +45,13 @@ export class BikeService {
     .then((bikes) => this.setBikes(bikes));
   }
 
+  updateParkLocation(id, status, location) {
+    const options = {
+      withCredentials: true
+    };
+
+    console.log('work in progress');
+
+
+  }
 }

@@ -10,9 +10,11 @@ import { AppComponent } from './app.component';
 import { LogInPageComponent } from './pages/log-in-page/log-in-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { SelectBikePageComponent } from './pages/select-bike-page/select-bike-page.component';
 
 // ---- OVERLAYS ---- //
 import { AddBikeComponent } from './overlays/add-bike/add-bike.component';
+import { BikeParkFormComponent } from './overlays/bike-park-form/bike-park-form.component';
 
 // --- SERVICES --- //
 import { AuthService } from './services/auth.service';
@@ -32,7 +34,8 @@ const routes: Routes = [
   {path: '', component: HomePageComponent, canActivate: [InitAuthGuard] },
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuard]},
   { path: 'login', component: LogInPageComponent, canActivate: [RequireAnonGuard]},
-  { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuard] }
+  { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuard] },
+  { path: 'select-bike', component: SelectBikePageComponent, canActivate: [RequireUserGuard] }
 ];
 
 
@@ -44,6 +47,8 @@ const routes: Routes = [
     ProfilePageComponent,
     AddBikeComponent,
     HomePageComponent,
+    SelectBikePageComponent,
+    BikeParkFormComponent,
   ],
   imports: [
     BrowserModule,

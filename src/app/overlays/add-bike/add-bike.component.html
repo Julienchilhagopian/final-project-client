@@ -1,4 +1,4 @@
-<section [ngClass]="{ 'hide': showOverlay }" class="add-bike-overlay">
+<section *ngIf="showOverlay" class="add-bike-overlay">
 
   <h1> Add a bike </h1>
 
