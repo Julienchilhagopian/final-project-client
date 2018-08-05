@@ -7,11 +7,12 @@
     <p>Brand</p>
     <p>Action</p>
   </div>
-    <div *ngFor="let item of bikes" class="bike-item">
+    <div *ngFor="let item of bikes" class="bike-item" [ngClass]="{ 'foo': item.report}">
       <h2>{{item.color}}</h2>
       <p>{{item.brand}}</p>
-      <button *ngIf="!item.parkStatus" (click)="updateId(item._id)">PARK</button>
+      <button *ngIf="!item.parkStatus" (click)="updateIdForPark(item._id)">PARK</button>
       <button *ngIf="item.parkStatus" (click)="updateIdForUnpark(item._id)">UNPARK</button>
+      <button *ngIf="item.report" (click)="toggleReportStatus(item._id)">Safe</button>
     </div> 
 </section>
 

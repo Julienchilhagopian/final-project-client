@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BikeService } from '../../services/bike.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-report-page',
@@ -11,14 +12,20 @@ export class ReportPageComponent implements OnInit {
   error = null;
   processing = false;
   bikes: any;
+  user: any;
 
   searchLocation: string;
 
   constructor(
-    private bikeService: BikeService
+    private bikeService: BikeService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
+    // this.authService.userChange$.subscribe((user) => {
+    //   this.user = user;
+    //   console.log(user);
+    // });
   }
 
   submitReportForm(form) {
@@ -30,6 +37,7 @@ export class ReportPageComponent implements OnInit {
         this.bikeService.getAllByLocation(this.searchLocation)
           .then((result) => {
            this.bikes = result;
+           this.user = this.authService.getUser();
           })
           .catch((err) => {
             this.error = err.error;
@@ -40,7 +48,9 @@ export class ReportPageComponent implements OnInit {
   }
 
 handleReport(id) {
-  this.bikeService.reportOne(id);
+  this.bikeService.reportOne(id, true);
 }
+
+
 
 }

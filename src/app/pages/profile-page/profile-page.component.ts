@@ -9,7 +9,6 @@ import { BikeService } from '../../services/bike.service';
 })
 export class ProfilePageComponent implements OnInit {
 bikes: any;
-bikeId: any;
 
   constructor(
     private authService: AuthService,
@@ -36,14 +35,20 @@ showMyBikes () {
   .catch(err => console.log(err));
 }
 
-updateId(id) {
-  this.bikeId = id;
+updateIdForPark(id) {
   this.bikeService.getBikeId(id);
 }
 
 updateIdForUnpark(id) {
-  this.bikeId = id;
-  this.bikeService.updateParkStatus(this.bikeId, false, 'unpark')
+  this.bikeService.updateParkStatus(id, false, 'unpark')
+  .then((result) => {
+    this.bikeService.getMine();
+   })
+   .catch(err => console.log(err));
+}
+
+toggleReportStatus(id) {
+  this.bikeService.reportOne(id, false)
   .then((result) => {
     this.bikeService.getMine();
    })

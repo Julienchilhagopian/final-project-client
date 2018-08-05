@@ -22,11 +22,26 @@
         </form>
   </section>
 
+  <!-- way to refractor this  -->
   <section>
     <div *ngFor="let item of bikes">
-        <h2>{{item.color}}</h2>
-        <p>{{item.brand}}</p>
-        <button (click)="handleReport(item._id)">Report</button>
+
+      <div *ngIf="user">
+        <article *ngIf="user._id != item.owner">
+          <h2>{{item.color}}</h2>
+          <p>{{item.brand}}</p>
+          <button (click)="handleReport(item._id)">Report</button>
+        </article>
+     </div>
+
+      <div *ngIf="!user">
+        <article>
+          <h2>{{item.color}}</h2>
+          <p>{{item.brand}}</p>
+          <button (click)="handleReport(item._id)">Report</button>
+        </article>
+      </div>
+
     </div>
 
   </section>

@@ -90,14 +90,14 @@ export class BikeService {
   }
 
 
-  reportOne(id) {
+  reportOne(id, reportStatus) {
     const options = {
       withCredentials: true
     };
 
     const data = {
       id,
-      parkStatus: true
+      reportStatus
     };
 
     return this.httpClient.put(`${this.baseUrl}/report`, data,  options)
