@@ -70,13 +70,38 @@ export class BikeService {
       location
     };
 
-    return this.httpClient.put(`${this.baseUrl}/:id`, data,  options)
+    return this.httpClient.put(`${this.baseUrl}/status`, data,  options)
     .toPromise()
     .then((bikes) => this.setBikes(bikes));
   }
 
   getBikeId(id) {
     this.getBikeIdSubject.next(id);
+  }
+
+  getAllByLocation(location) {
+    const options = {
+      withCredentials: true
+    };
+
+    return this.httpClient.get(`${this.baseUrl}?location=${location}`, options)
+    .toPromise();
+    // .then((bikes) => this.setBikes(bikes));
+  }
+
+
+  reportOne(id) {
+    const options = {
+      withCredentials: true
+    };
+
+    const data = {
+      id,
+      parkStatus: true
+    };
+
+    return this.httpClient.put(`${this.baseUrl}/report`, data,  options)
+    .toPromise();
   }
 
 }

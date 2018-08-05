@@ -1,3 +1,32 @@
-<p>
-  report-page works!
-</p>
+<section>
+  <h1> What's your location ?</h1>
+
+      <form (ngSubmit)="submitReportForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="add-bike-form">
+          <div class="field" [ngClass]="{'has-error': feedbackEnabled }">
+              <label></label>
+              <input placeholder="Enter your location" type="text" name="searchLocation" [(ngModel)]="searchLocation" #colorField="ngModel" required/>
+              <div *ngIf="feedbackEnabled ">
+                <p *ngIf="" class="validation"> Please enter the location of your bike</p>
+              </div>
+            </div>
+      
+          <div class="field submit">
+              <button type="submit"  class="reset-button"> Search </button>
+            </div>
+      
+            <div *ngIf="error" class="validation">
+                <div [ngSwitch]="error.code">
+                  <p *ngSwitchDefault> Unexpected error get out of here</p>
+                </div>
+              </div>
+        </form>
+  </section>
+
+  <section>
+    <div *ngFor="let item of bikes">
+        <h2>{{item.color}}</h2>
+        <p>{{item.brand}}</p>
+        <button (click)="handleReport(item._id)">Report</button>
+    </div>
+
+  </section>
