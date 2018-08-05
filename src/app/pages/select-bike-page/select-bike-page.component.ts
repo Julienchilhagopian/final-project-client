@@ -42,5 +42,4 @@ export class SelectBikePageComponent implements OnInit {
      .catch(err => console.log(err));
   }
 
-
 }
