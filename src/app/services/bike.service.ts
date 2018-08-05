@@ -25,6 +25,7 @@ export class BikeService {
     return bikes;
   }
 
+  // getOne is not used
   getOne() {
     const options = {
       withCredentials: true
@@ -58,12 +59,19 @@ export class BikeService {
     .then((bikes) => this.setBikes(bikes));
   }
 
-  updateParkLocation(id, status, location) {
+  updateParkLocation(id: string, parkStatus: boolean, location: string) {
     const options = {
       withCredentials: true
     };
 
-    console.log('work in progress');
+    const data = {
+      id,
+      parkStatus,
+      location
+    };
+
+    return this.httpClient.put(`${this.baseUrl}/:id`, data,  options)
+    .toPromise();
   }
 
   getBikeId(id) {

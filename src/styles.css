@@ -187,6 +187,15 @@ body {
   text-align: center;
 }
 
+/* ---- Bike park overlay  ---- */
+
+.bike-park-overlay {
+  bottom: 31%;
+  left: 15%;
+  width: 70%;
+  height: 35%;
+}
+
 /* ---- footer ---- */
 footer {
   height: 20vh;

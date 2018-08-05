@@ -1,22 +1,17 @@
-<p>
-  bike-park-form works! 
-</p>
-
-<section *ngIf="showOverlay">
+<section *ngIf="showOverlay" class="add-bike-overlay bike-park-overlay">
+  <button (click)="closeForm()"> Close </button>
+<h1> Where ? </h1>
     <form (ngSubmit)="submitParkForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="add-bike-form">
         <div class="field" [ngClass]="{'has-error': feedbackEnabled && colorField.errors}">
             <label></label>
-            <input type="text" name="location" [(ngModel)]="location" #colorField="ngModel" [disabled]="processing" required/>
+            <input placeholder="location" type="text" name="location" [(ngModel)]="location" #colorField="ngModel" [disabled]="processing" required/>
             <div *ngIf="feedbackEnabled && colorField.errors">
-              <p *ngIf="colorField.errors.required" class="validation"> Please enter the color of your bike</p>
+              <p *ngIf="colorField.errors.required" class="validation"> Please enter the location of your bike</p>
             </div>
           </div>
     
         <div class="field submit">
             <button type="submit" [disabled]="processing" class="reset-button"> Park </button>
-            <div *ngIf="feedbackEnabled && form.invalid">
-              <p class="validation">There are errors in the form, please review the fields</p>
-            </div>
           </div>
     
           <div *ngIf="error" class="validation">
