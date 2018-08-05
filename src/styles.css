@@ -61,7 +61,7 @@ body {
 /* ---- Style on router outlet ---- */
 
 .container {
-  height: 90vh;
+  height: 100vh;
 }
 
 
@@ -112,25 +112,33 @@ body {
 /* ---- Profile page ---- */
 
 .profile-container {
-  border: 1px solid #dcdcdc;
-  margin: 20px 30px;
+
 }
 
-.profile-container h1 {
-  background-color: #e3e3e3;
-  border: 1px solid #dcdcdc;
+.profile-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35vh;
+  background:linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(https://uptownalmanac.com/sites/default/files/styles/full-post-width/public/images-on-cdn/blue-bottle-pile.jpg);
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
+.profile-header h1 {
   margin: 0;
-  padding: 32px 48px;
+  font-size: 50px;
 }
 
-.profile-bar {
+.profile-titles {
   border-bottom: 1px solid #dcdcdc; 
   display: flex;
   justify-content: space-around;
   padding: 16px 18px;
 }
 
-.profile-bar p {
+.profile-titles p {
   margin: 0;
   color: #777777;
 }
@@ -142,9 +150,28 @@ body {
   justify-content: space-around;
 }
 
-.bike-item:last-child {
-  border: none;
+.actionButton {
+  padding: 7px 15px;
+  font-size: 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
 }
+
+.parkButton {
+  border: 1px solid #1DB954;
+  color: #1DB954;
+}
+
+.unparkButton {
+  border: 1px solid #b9511d;
+  color: #b9511d;
+}
+
+.safeButton {
+  background-color: #1DB954;
+  color: white;
+}
+
 
 /* ---- Add bike overlay  ---- */
 .add-bike-overlay {
@@ -194,6 +221,13 @@ body {
   left: 15%;
   width: 70%;
   height: 35%;
+}
+
+/* ---- Report page  ---- */
+
+.reportButton {
+  background-color: #b92a1d;
+  color: white;
 }
 
 /* ---- footer ---- */

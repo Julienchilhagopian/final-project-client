@@ -38,7 +38,7 @@ export class BikeParkFormComponent implements OnInit {
       this.processing = true;
       this.bikeService.updateParkStatus(this.bikeId, true, this.location)
         .then((result) => {
-         this.router.navigate(['/select-bike']);
+         this.router.navigate(['/profile']);
          this.closeForm();
          this.bikeService.getMine();
         })
