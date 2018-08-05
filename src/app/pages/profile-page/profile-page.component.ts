@@ -9,6 +9,7 @@ import { BikeService } from '../../services/bike.service';
 })
 export class ProfilePageComponent implements OnInit {
 bikes: any;
+bikeId: any;
 
   constructor(
     private authService: AuthService,
@@ -23,7 +24,7 @@ ngOnInit() {
 
     if (bikes instanceof Array) {
       this.bikes = bikes;
-    } // ERROR TO SOLVE
+    } // ERROR SOLVED
   });
 }
 
@@ -34,6 +35,21 @@ showMyBikes () {
   })
   .catch(err => console.log(err));
 }
+
+updateId(id) {
+  this.bikeId = id;
+  this.bikeService.getBikeId(id);
+}
+
+updateIdForUnpark(id) {
+  this.bikeId = id;
+  this.bikeService.updateParkStatus(this.bikeId, false, 'unpark')
+  .then((result) => {
+    this.bikeService.getMine();
+   })
+   .catch(err => console.log(err));
+}
+
 
 
 }

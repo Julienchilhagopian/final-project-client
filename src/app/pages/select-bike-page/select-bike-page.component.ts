@@ -10,6 +10,7 @@ export class SelectBikePageComponent implements OnInit {
   bikes: any;
   bikeId: any;
 
+
   constructor(private bikeService: BikeService) {
     this.bikeService.getMine()
     .then((result) => {
@@ -19,13 +20,27 @@ export class SelectBikePageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.bikeService.bikesChange$.subscribe((bikes) => {
+      console.log(bikes);
+      if (bikes instanceof Array) {
+        this.bikes = bikes;
+      }
+    });
   }
 
-  handleId(id) {
+  updateId(id) {
     this.bikeId = id;
     this.bikeService.getBikeId(id);
   }
 
+  updateIdForUnpark(id) {
+    this.bikeId = id;
+    this.bikeService.updateParkStatus(this.bikeId, false, 'unpark')
+    .then((result) => {
+      this.bikeService.getMine();
+     })
+     .catch(err => console.log(err));
+  }
 
 
 }

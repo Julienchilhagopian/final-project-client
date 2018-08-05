@@ -5,7 +5,8 @@
     <div *ngFor="let item of bikes" class="bike-item">
         <h2>{{item.color}}</h2>
         <p>{{item.brand}}</p>
-        <button (click)="handleId(item._id)">give me id</button>
+        <button *ngIf="!item.parkStatus" (click)="updateId(item._id)">PARK</button>
+        <button *ngIf="item.parkStatus" (click)="updateIdForUnpark(item._id)">UNPARK</button>
       </div> 
       
     </section>

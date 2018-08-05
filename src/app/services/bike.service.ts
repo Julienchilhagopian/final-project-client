@@ -59,7 +59,7 @@ export class BikeService {
     .then((bikes) => this.setBikes(bikes));
   }
 
-  updateParkLocation(id: string, parkStatus: boolean, location: string) {
+  updateParkStatus(id: string, parkStatus: boolean, location: string) {
     const options = {
       withCredentials: true
     };
@@ -71,7 +71,8 @@ export class BikeService {
     };
 
     return this.httpClient.put(`${this.baseUrl}/:id`, data,  options)
-    .toPromise();
+    .toPromise()
+    .then((bikes) => this.setBikes(bikes));
   }
 
   getBikeId(id) {
