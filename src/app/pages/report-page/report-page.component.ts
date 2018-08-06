@@ -14,6 +14,7 @@ export class ReportPageComponent implements OnInit {
   bikes: any;
   user: any;
 
+  test: any;
   searchLocation: string;
 
   constructor(
@@ -31,10 +32,11 @@ export class ReportPageComponent implements OnInit {
   submitReportForm(form) {
       this.error = '';
       this.feedbackEnabled = true;
+      this.bikeService.getAllByLocation();
 
       if (form.valid) {
         this.processing = true;
-        this.bikeService.getAllByLocation(this.searchLocation)
+        this.bikeService.getAllByLocation()
           .then((result) => {
            this.bikes = result;
            this.user = this.authService.getUser();

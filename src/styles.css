@@ -44,24 +44,37 @@ body {
 
 /* ---- START Home page ---- */
 
-.home-button button{
-  padding: 30px 70px;
-  margin: 30px 0px;
-  border: 1px solid;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.home-button {
-  display: flex;
-  flex-direction: column;
-}
-
 .home-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 85vh;
+  flex-direction: column;
+  height: 80vh;
+}
+
+.home-container button {
+  padding: 30px 70px;
+  margin: 20% 0px;
+  border: 2px solid;
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.report-div button {
+  color: tomato;
+
+}
+
+.park-div button {
+  color: #1DB954;
+  width: 250px;
+}
+
+.home-container div {
+  width: 100%;
+  height: 50%;
+  text-align: center;
 }
 
 /* ---- Bicilante concept ---- */
@@ -82,13 +95,13 @@ body {
 .concept h1 {
   color: white;
   font-size: 64px;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
 }
 
 .concept p {
   color: #777;
   font-size: 17px;
-  padding: 5px 0px;
+  padding: 10px 0px;
 }
 
 .concept span {
@@ -172,7 +185,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 35vh;
+  height: 40vh;
   background:linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(https://uptownalmanac.com/sites/default/files/styles/full-post-width/public/images-on-cdn/blue-bottle-pile.jpg);
   background-position: center;
   background-size: cover;
@@ -277,6 +290,7 @@ body {
 }
 
 /* ---- Report page  ---- */
+
 
 .reportButton {
   background-color: #b92a1d;

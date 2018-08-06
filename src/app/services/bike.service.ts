@@ -79,14 +79,29 @@ export class BikeService {
     this.getBikeIdSubject.next(id);
   }
 
-  getAllByLocation(location) {
+  getAllByLocation() {
     const options = {
       withCredentials: true
     };
 
-    return this.httpClient.get(`${this.baseUrl}?location=${location}`, options)
-    .toPromise();
-    // .then((bikes) => this.setBikes(bikes));
+    if (navigator.geolocation) {
+      const getPosition = () => {
+        return new Promise( (resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject);
+        });
+      };
+      getPosition()
+        .then((position: any) => {
+          const center = `latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`;
+
+          console.log(center);
+          return this.httpClient.get(`${this.baseUrl}?${center}`, options)
+            .toPromise();
+        })
+        .catch((err) => {
+          console.error(err.message);
+        });
+    }
   }
 
 
@@ -103,5 +118,6 @@ export class BikeService {
     return this.httpClient.put(`${this.baseUrl}/report`, data,  options)
     .toPromise();
   }
+
 
 }
