@@ -21,7 +21,12 @@ body {
   background: none;
   border: none;
 }
-/* ---- Home page ---- */
+
+.margin-reset {
+  margin: 0;
+}
+
+/* ---- Nav bar---- */
 
 .navbar {
   background-color: #191919;
@@ -36,6 +41,8 @@ body {
   margin: 0px 8px;
 
 }
+
+/* ---- START Home page ---- */
 
 .home-button button{
   padding: 30px 70px;
@@ -54,19 +61,68 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  height: 85vh;
+}
+
+/* ---- Bicilante concept ---- */
+
+.concept {
+  background-color: #191919;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0px;
+}
+
+.concept h1, .concept p {
+  margin: 0;
+}
+
+.concept h1 {
+  color: white;
+  font-size: 64px;
+  margin-bottom: 25px;
+}
+
+.concept p {
+  color: #777;
+  font-size: 17px;
+  padding: 5px 0px;
+}
+
+.concept span {
+  text-transform: uppercase;
+}
+
+.report-span {
+  color: tomato
+}
+
+.park-span {
+  color: #1DB954;
+}
+
+/* ---- Bicilante social ---- */
+
+.community {
+  text-align: center;
+  height: 60vh;
+  padding: 25px 20px;
+}
+.community p {
+  color: #777;
+  font-size: 17px;
+}
+
+.community h2 {
+  font-size: 42px;
 }
 
 
-/* ---- Style on router outlet ---- */
+/* ---- END Home page ---- */
 
-.container {
-  height: 100vh;
-}
-
-
-
-/* ---- classic bootcamp ---- */
+/* ---- Classic bootcamp ---- */
 
 
 .auth-container {
@@ -111,9 +167,6 @@ body {
 
 /* ---- Profile page ---- */
 
-.profile-container {
-
-}
 
 .profile-header {
   display: flex;
