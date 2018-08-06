@@ -26,16 +26,19 @@ export class SelectBikePageComponent implements OnInit {
         this.bikes = bikes;
       }
     });
+
   }
 
-  updateId(id) {
+  updateBikeLocation(id) {
     this.bikeId = id;
     this.bikeService.getBikeId(id);
+
+    this.bikeService.updateParkStatus(this.bikeId, true);
   }
 
   updateIdForUnpark(id) {
     this.bikeId = id;
-    this.bikeService.updateParkStatus(this.bikeId, false, 'unpark')
+    this.bikeService.updateParkStatus(this.bikeId, false)
     .then((result) => {
       this.bikeService.getMine();
      })

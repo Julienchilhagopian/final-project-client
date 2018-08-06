@@ -26,27 +26,27 @@ export class BikeParkFormComponent implements OnInit {
     this.bikeService.getBikeId$.subscribe((data) => {
       this.bikeId = data;
       console.log(this.bikeId);
-      this.showOverlay = true;
+      // this.showOverlay = true;
     });
   }
 
   submitParkForm(form) {
     this.error = '';
     this.feedbackEnabled = true;
+    this.bikeService.updateParkStatus(this.bikeId, true);
 
     if (form.valid) {
       this.processing = true;
-      this.bikeService.updateParkStatus(this.bikeId, true, this.location)
-        .then((result) => {
-         this.router.navigate(['/profile']);
-         this.closeForm();
-         this.bikeService.getMine();
-        })
-        .catch((err) => {
-          this.error = err.error;
-          this.processing = false;
-          this.feedbackEnabled = false;
-        });
+      // .then((result) => {
+      //    this.router.navigate(['/profile']);
+      //    this.closeForm();
+      //    this.bikeService.getMine();
+      //   })
+      //   .catch((err) => {
+      //     this.error = err.error;
+      //     this.processing = false;
+      //     this.feedbackEnabled = false;
+      //   });
     }
   }
 

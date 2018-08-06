@@ -29,25 +29,25 @@ export class ReportPageComponent implements OnInit {
     // });
   }
 
-  submitReportForm(form) {
-      this.error = '';
-      this.feedbackEnabled = true;
-      this.bikeService.getAllByLocation();
+  // submitReportForm(form) {
+  //     this.error = '';
+  //     this.feedbackEnabled = true;
+  //     this.bikeService.getAllByLocation();
 
-      if (form.valid) {
-        this.processing = true;
-        this.bikeService.getAllByLocation()
-          .then((result) => {
-           this.bikes = result;
-           this.user = this.authService.getUser();
-          })
-          .catch((err) => {
-            this.error = err.error;
-            this.processing = false;
-            this.feedbackEnabled = false;
-          });
-      }
-  }
+  //     if (form.valid) {
+  //       this.processing = true;
+  //       this.bikeService.getAllByLocation()
+  //         .then((result) => {
+  //          this.bikes = result;
+  //          this.user = this.authService.getUser();
+  //         })
+  //         .catch((err) => {
+  //           this.error = err.error;
+  //           this.processing = false;
+  //           this.feedbackEnabled = false;
+  //         });
+  //     }
+  // }
 
 handleReport(id) {
   this.bikeService.reportOne(id, true);

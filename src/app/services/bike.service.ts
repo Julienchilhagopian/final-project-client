@@ -26,15 +26,15 @@ export class BikeService {
   }
 
   // getOne is not used
-  getOne() {
-    const options = {
-      withCredentials: true
-    };
+  // getOne() {
+  //   const options = {
+  //     withCredentials: true
+  //   };
 
-    return this.httpClient.get(`${this.baseUrl}/:id`, options)
-    .toPromise();
+  //   return this.httpClient.get(`${this.baseUrl}/:id`, options)
+  //   .toPromise();
 
-  }
+  // }
 
   createBike (color: string, brand: string) {
     const options = {
@@ -59,21 +59,58 @@ export class BikeService {
     .then((bikes) => this.setBikes(bikes));
   }
 
-  updateParkStatus(id: string, parkStatus: boolean, location: string) {
+  updateParkStatus(id: string, parkStatus: boolean) {
     const options = {
       withCredentials: true
     };
 
-    const data = {
-      id,
-      parkStatus,
-      location
-    };
 
-    return this.httpClient.put(`${this.baseUrl}/status`, data,  options)
-    .toPromise()
-    .then((bikes) => this.setBikes(bikes));
+    if (navigator.geolocation && parkStatus) {
+      const getPosition = () => {
+        return new Promise( (resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject);
+        });
+      };
+
+      getPosition()
+      .then((position: any) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        console.log(latitude, longitude);
+
+        const data = {
+          id,
+          parkStatus,
+          latitude,
+          longitude
+        };
+
+
+        return this.httpClient.put(`${this.baseUrl}/status`, data,  options)
+        .toPromise()
+        .then((bikes) => this.getMine());
+
+        })
+
+      .catch((err) => {
+        console.error(err.message);
+        });
+
+    } else {
+      const data = {
+        id,
+        parkStatus,
+      };
+
+      return this.httpClient.put(`${this.baseUrl}/status`, data,  options)
+        .toPromise()
+        .then((bikes) => this.setBikes(bikes));
+    }
+
+
   }
+
+
 
   getBikeId(id) {
     this.getBikeIdSubject.next(id);
@@ -90,10 +127,10 @@ export class BikeService {
           navigator.geolocation.getCurrentPosition(resolve, reject);
         });
       };
+
       getPosition()
         .then((position: any) => {
           const center = `latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`;
-
           console.log(center);
           return this.httpClient.get(`${this.baseUrl}?${center}`, options)
             .toPromise();
@@ -102,6 +139,7 @@ export class BikeService {
           console.error(err.message);
         });
     }
+
   }
 
 
