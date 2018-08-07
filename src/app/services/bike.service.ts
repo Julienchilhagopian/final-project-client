@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject, Observable} from 'rxjs';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BikeService {
-  private baseUrl = 'http://localhost:3000/bike';
+  private baseUrl = environment.apiUrl + '/bike';
 
   private bikes: any;
 
