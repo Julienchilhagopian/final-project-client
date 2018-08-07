@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BikeService } from '../../services/bike.service';
+import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
+import { environment } from '../../../environments/environment.prod';
 
 
+const URL = 'http://localhost:3000/bike';
 
 @Component({
   selector: 'app-add-bike',
@@ -10,6 +13,10 @@ import { BikeService } from '../../services/bike.service';
   styleUrls: ['./add-bike.component.css']
 })
 export class AddBikeComponent implements OnInit {
+  uploader: FileUploader = new FileUploader({
+    url: URL
+  });
+
   showOverlay = false;
   addButtonText = '+';
   feedbackEnabled = false;
@@ -22,7 +29,17 @@ export class AddBikeComponent implements OnInit {
   constructor(
     private router: Router,
     private bikeService: BikeService
-  ) {}
+  ) {
+    this.uploader.onSuccessItem = (item, response) => {
+      console.log('upload ok');
+      this.router.navigate(['/profile']);
+      this.toggleOverlay();
+      this.bikeService.getMine();
+    };
+    this.uploader.onErrorItem = (item, response, status, headers) => {
+      console.log('upload not ok');
+    };
+  }
 
   ngOnInit() {
   }
@@ -43,19 +60,12 @@ export class AddBikeComponent implements OnInit {
 
     if (form.valid) {
       this.processing = true;
-      this.bikeService.createBike(this.color, this.brand)
-        .then((result) => {
-         this.router.navigate(['/profile']);
-         this.toggleOverlay();
-         this.bikeService.getMine();
-        })
-        .catch((err) => {
-          this.error = err.error;
-          this.processing = false;
-          this.feedbackEnabled = false;
-        });
+      this.uploader.onBuildItemForm = (item, form2) => {
+        form2.append('color', this.color);
+        form2.append('brand', this.brand);
+      };
     }
+    this.uploader.uploadAll();
   }
-
 
 }

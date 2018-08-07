@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 // ---- PAGES ---- //
 import { AppComponent } from './app.component';
@@ -52,6 +53,7 @@ const routes: Routes = [
     SelectBikePageComponent,
     BikeParkFormComponent,
     ReportPageComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
