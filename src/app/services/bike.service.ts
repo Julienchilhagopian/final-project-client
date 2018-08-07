@@ -108,10 +108,7 @@ export class BikeService {
         .then((bikes) => this.setBikes(bikes));
     }
 
-
   }
-
-
 
   getBikeId(id) {
     this.getBikeIdSubject.next(id);

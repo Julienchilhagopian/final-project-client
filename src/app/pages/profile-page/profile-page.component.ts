@@ -41,6 +41,7 @@ updateBikeLocation(id) {
 }
 
 updateIdForUnpark(id) {
+  console.log('ok');
   this.bikeService.updateParkStatus(id, false)
   .then((result) => {
     this.bikeService.getMine();
