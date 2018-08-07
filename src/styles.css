@@ -167,7 +167,6 @@ body {
   color: white;
   padding: 10px 26px;
   font-size: 15px;
-  margin-top: 13px;
 }
 
 .create-account p:first-child{
@@ -292,16 +291,37 @@ body {
 /* ---- Report page  ---- */
 
 
+.report-container {
+  height: 60vh;
+  background-color: #EFEFEF;
+  padding: 50px 0px;
+  text-align: center;
+}
+
+.report-container h1 {
+  font-size: 64px;
+  margin: 0;
+}
+
+.report-container p {
+  margin: 32px 0px;
+  color: #777;
+}
+
 .reportButton {
   background-color: #b92a1d;
   color: white;
 }
+
+
+
 
 /* ---- footer ---- */
 footer {
   height: 20vh;
   background-color: #191919;
   color: white;
+  
 }
 
 .foo {

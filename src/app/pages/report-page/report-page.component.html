@@ -1,24 +1,14 @@
 <section class="report-container">
-  <h1> What's your location ?</h1>
+  <h1> Report </h1>
+  <p>Someone is trying to steal a bike, warn the owner</p>
+  <p> We use your current position to find all the bikes parked around you </p>
 
-      <form (ngSubmit)="submitReportForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="add-bike-form">
-          <div class="field" [ngClass]="{'has-error': feedbackEnabled }">
-              <label></label>
-              <input placeholder="Enter your location" type="text" name="searchLocation" [(ngModel)]="searchLocation" #colorField="ngModel" required/>
-              <div *ngIf="feedbackEnabled ">
-                <p *ngIf="" class="validation"> Please enter the location of your bike</p>
-              </div>
-            </div>
-      
+      <form (ngSubmit)="submitReportForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+
           <div class="field submit">
               <button type="submit"  class="reset-button"> Search </button>
             </div>
-      
-            <div *ngIf="error" class="validation">
-                <div [ngSwitch]="error.code">
-                  <p *ngSwitchDefault> Unexpected error get out of here</p>
-                </div>
-              </div>
+  
         </form>
   </section>
 
@@ -30,7 +20,7 @@
         <article *ngIf="user._id != item.owner">
           <h2>{{item.color}}</h2>
           <p>{{item.brand}}</p>
-          <button (click)="handleReport(item._id)" class="actionButton reportButton reset-button">Report</button>
+          <button (click)="handleReport(item._id)" class="actionButton reportButton reset-button">oooReport</button>
         </article>
      </div>
 
