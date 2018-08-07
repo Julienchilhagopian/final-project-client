@@ -31,7 +31,6 @@ export class AddBikeComponent implements OnInit {
     private bikeService: BikeService
   ) {
     this.uploader.onSuccessItem = (item, response) => {
-      console.log('upload ok');
       this.router.navigate(['/profile']);
       this.toggleOverlay();
       this.bikeService.getMine();
