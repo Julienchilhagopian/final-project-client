@@ -27,27 +27,34 @@ export class ReportPageComponent implements OnInit {
     //   this.user = user;
     //   console.log(user);
     // });
+    this.bikeService.bikesChange$.subscribe((bikes) => {
+      console.log(bikes);
+
+      if (bikes instanceof Array) {
+        this.bikes = bikes;
+      } // ERROR SOLVED
+    });
   }
 
-  // submitReportForm(form) {
-  //     this.error = '';
-  //     this.feedbackEnabled = true;
-  //     this.bikeService.getAllByLocation();
+  submitReportForm(form) {
+      this.error = '';
+      this.feedbackEnabled = true;
+      this.bikeService.getAllByLocation();
 
-  //     if (form.valid) {
-  //       this.processing = true;
-  //       this.bikeService.getAllByLocation()
-  //         .then((result) => {
-  //          this.bikes = result;
-  //          this.user = this.authService.getUser();
-  //         })
-  //         .catch((err) => {
-  //           this.error = err.error;
-  //           this.processing = false;
-  //           this.feedbackEnabled = false;
-  //         });
-  //     }
-  // }
+      // if (form.valid) {
+      //   this.processing = true;
+      //   this.bikeService.getAllByLocation()
+      //     .then((result) => {
+      //      this.bikes = result;
+      //      this.user = this.authService.getUser();
+      //     })
+      //     .catch((err) => {
+      //       this.error = err.error;
+      //       this.processing = false;
+      //       this.feedbackEnabled = false;
+      //     });
+      // }
+  }
 
 handleReport(id) {
   this.bikeService.reportOne(id, true);

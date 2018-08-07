@@ -35,12 +35,13 @@ showMyBikes () {
   .catch(err => console.log(err));
 }
 
-updateIdForPark(id) {
+updateBikeLocation(id) {
   this.bikeService.getBikeId(id);
+  this.bikeService.updateParkStatus(id, true);
 }
 
 updateIdForUnpark(id) {
-  this.bikeService.updateParkStatus(id, false, 'unpark')
+  this.bikeService.updateParkStatus(id, false)
   .then((result) => {
     this.bikeService.getMine();
    })

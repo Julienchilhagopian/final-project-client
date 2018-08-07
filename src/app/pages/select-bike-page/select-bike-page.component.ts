@@ -8,7 +8,6 @@ import { BikeService } from '../../services/bike.service';
 })
 export class SelectBikePageComponent implements OnInit {
   bikes: any;
-  bikeId: any;
 
 
   constructor(private bikeService: BikeService) {
@@ -30,15 +29,12 @@ export class SelectBikePageComponent implements OnInit {
   }
 
   updateBikeLocation(id) {
-    this.bikeId = id;
     this.bikeService.getBikeId(id);
-
-    this.bikeService.updateParkStatus(this.bikeId, true);
+    this.bikeService.updateParkStatus(id, true);
   }
 
   updateIdForUnpark(id) {
-    this.bikeId = id;
-    this.bikeService.updateParkStatus(this.bikeId, false)
+    this.bikeService.updateParkStatus(id, false)
     .then((result) => {
       this.bikeService.getMine();
      })

@@ -133,7 +133,9 @@ export class BikeService {
           const center = `latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`;
           console.log(center);
           return this.httpClient.get(`${this.baseUrl}?${center}`, options)
-            .toPromise();
+            .toPromise()
+            .then((bikes) => this.setBikes(bikes));
+
         })
         .catch((err) => {
           console.error(err.message);
