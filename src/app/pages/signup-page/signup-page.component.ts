@@ -14,7 +14,6 @@ export class SignupPageComponent implements OnInit {
 
   username: string;
   password: string;
-  email: string;
 
   constructor(
     private authService: AuthService,
@@ -28,7 +27,7 @@ export class SignupPageComponent implements OnInit {
     this.feedbackEnabled = true;
     if (form.valid) {
       this.processing = true;
-      this.authService.signup(this.username, this.password, this.email)
+      this.authService.signup(this.username, this.password)
         .then((result) => {
          this.router.navigate(['/profile']);
         console.log('signup form submitted');

@@ -120,7 +120,7 @@ export class ProfilePageComponent implements OnInit {
 
     this.distance(pointA.latitude, pointA.longitude, pointB.latitude, pointB.longitude, 'K');
 
-      if (this.finalDistance >= 0) {
+      if (this.finalDistance >= 0.25833) {
 
         console.log('WOOORKIIING');
 

@@ -43,14 +43,13 @@ userChange$: Observable<any> = this.userChange.asObservable();
       });
    }
 
-   signup (username: string, password: string, email: string) {
+   signup (username: string, password: string ) {
     const options = {
       withCredentials: true
     };
     const data = {
       username,
       password,
-      email
     };
     return this.httpClient.post(`${this.baseUrl}/signup`, data, options)
       .toPromise()
