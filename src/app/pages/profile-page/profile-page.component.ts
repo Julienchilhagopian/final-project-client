@@ -21,7 +21,7 @@ export class ProfilePageComponent implements OnInit {
   options = {
     enableHighAccuracy: false,
     timeout: 60000,
-    maximumAge: 500
+    maximumAge: 0
   };
   finalDistance: any;
 
@@ -120,7 +120,7 @@ export class ProfilePageComponent implements OnInit {
 
     this.distance(pointA.latitude, pointA.longitude, pointB.latitude, pointB.longitude, 'K');
 
-      if (this.finalDistance >= 0.07333) {
+      if (this.finalDistance >= 0) {
 
         console.log('WOOORKIIING');
 
