@@ -21,7 +21,7 @@ export class ProfilePageComponent implements OnInit {
   options = {
     enableHighAccuracy: false,
     timeout: 60000,
-    maximumAge: 3000
+    maximumAge: 500
   };
   finalDistance: any;
 
