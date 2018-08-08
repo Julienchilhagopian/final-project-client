@@ -1,11 +1,13 @@
 
 <section class="home-container">
-        <div class="report-div">
-          <button [routerLink]="['report']" class="reset-button">Report</button>
-      </div>
-      <div class="park-div">
-          <button [routerLink]="['select-bike']" class="reset-button">Park</button>
-      </div>
+  <div>
+    <p>Someone is stealing a bike</p>
+    <button [routerLink]="['report']" class="reset-button report-div">Report</button>
+  </div>
+  <div>
+    <p>You arrived at destination ?</p>
+    <button [routerLink]="['select-bike']" class="reset-button park-div">Park</button>
+  </div>
 </section>
 
 <section class="concept">
@@ -16,6 +18,7 @@
     <p> <span class="report-span">Report</span> a robbery.</p>
     <p> <span class="park-span">Park</span> your bike and leave it without stress.</p>
    </div>
+   <a [routerLink]="['/login']" class="join-now">join now</a>
 </section>
 
 

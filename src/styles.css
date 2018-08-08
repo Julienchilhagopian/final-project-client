@@ -11,7 +11,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Work Sans', sans-serif;
 }
 
 /* ---- TOOLS ---- */
@@ -35,55 +35,79 @@ body {
   height: 9vh;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid #292929;
 }
 
 .navbar a {
   color: white;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.no-user-a {
+  padding-right: 11px;
 }
 
 .navbar img {
   width: 185px;
   padding-left: 8px;
 }
-.noUser-a {
-  
+
+.spacer {
+  width: 100%;
+  height: 9vh;
 }
+
+.user-true button {
+  color: white;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.user-true a {
+  font-size: 13px;
+  padding: 0 7px;
+}
+
 
 /* ---- START Home page ---- */
 
 .home-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  text-align: center;
   height: 80vh;
+  justify-content: center;
 }
 
 .home-container button {
   padding: 30px 70px;
-  margin: 20% 0px;
+  margin-bottom: 65px;
   border: 2px solid;
   font-size: 25px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.report-div button {
-  color: tomato;
-
+.home-container p {
+  margin: 21px 0 40px 0;
+  color: #777777;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.park-div button {
+.report-div {
+  color: tomato;
+}
+
+.park-div {
   color: #1DB954;
   width: 250px;
 }
 
-.home-container div {
-  width: 100%;
-  height: 50%;
-  text-align: center;
-}
 
 /* ---- Bicilante concept ---- */
 
@@ -93,7 +117,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 0px;
+  padding: 50px 40px;
 }
 
 .concept h1, .concept p {
@@ -112,8 +136,18 @@ body {
   padding: 10px 0px;
 }
 
-.concept span {
+.concept p:last-child {
+  margin-bottom: 35px;
+}
+
+.join-now {
+  text-decoration: none;
+  color: #777;
+  font-size: 15px;
+  border: 1px solid #777;
+  padding: 14px;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .report-span {
@@ -123,6 +157,7 @@ body {
 .park-span {
   color: #1DB954;
 }
+
 
 /* ---- Bicilante social ---- */
 
