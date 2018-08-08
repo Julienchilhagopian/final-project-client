@@ -5,7 +5,7 @@ import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 import { environment } from '../../../environments/environment.prod';
 
 
-const URL = 'http://localhost:3000/bike';
+const URL = environment.apiUrl + '/bike';
 
 @Component({
   selector: 'app-add-bike',

@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { BikeService } from '../../services/bike.service';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-profile-page',
@@ -12,6 +13,7 @@ import { BikeService } from '../../services/bike.service';
 export class ProfilePageComponent implements OnInit {
   bikes: any;
   bikeId: any;
+  baseUrl = environment.apiUrl;
 
   coordinatesArray = [];
 

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { FileSelectDirective } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
 
 // ---- PAGES ---- //
 import { AppComponent } from './app.component';
@@ -52,14 +52,14 @@ const routes: Routes = [
     HomePageComponent,
     SelectBikePageComponent,
     BikeParkFormComponent,
-    ReportPageComponent,
-    FileSelectDirective
+    ReportPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FileUploadModule
   ],
   providers: [
     AuthService,

@@ -29,6 +29,8 @@ body {
 /* ---- Nav bar---- */
 
 .navbar {
+  position: fixed;
+  width: 100%;
   background-color: #191919;
   height: 9vh;
   display: flex;
@@ -38,8 +40,14 @@ body {
 .navbar a {
   color: white;
   text-decoration: none;
-  margin: 0px 8px;
+}
 
+.navbar img {
+  width: 185px;
+  padding-left: 8px;
+}
+.noUser-a {
+  
 }
 
 /* ---- START Home page ---- */

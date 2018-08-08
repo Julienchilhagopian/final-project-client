@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BikeService } from '../../services/bike.service';
 import { AuthService } from '../../services/auth.service';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-report-page',
@@ -13,6 +14,7 @@ export class ReportPageComponent implements OnInit {
   processing = false;
   bikes: any;
   user: any;
+  baseUrl = environment.apiUrl;
 
   test: any;
   searchLocation: string;

@@ -18,7 +18,7 @@
 
       <div *ngIf="user">
         <article *ngIf="user._id != item.owner">
-          <img src="http://localhost:3000/{{item.imageUrl}}" alt="" width="100">
+          <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="100">
           <p>{{item.brand}}</p>
           <button (click)="handleReport(item._id, item.number)" class="actionButton reportButton reset-button">Report</button>
         </article>
@@ -26,7 +26,7 @@
 
       <div *ngIf="!user">
         <article>
-          <img src="http://localhost:3000/{{item.imageUrl}}" alt="" width="100">
+          <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="100">
           <p>{{item.brand}}</p>
           <button (click)="handleReport(item._id, item.number)" class="actionButton reportButton reset-button">Report</button>
         </article>

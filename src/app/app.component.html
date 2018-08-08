@@ -1,15 +1,20 @@
 <header>
   
   <div class="navbar">
+      <a [routerLink]="['/']">
+        <img src="assets/images/bicilante-logo.jpg" alt="">
+      </a>
       <div *ngIf="!loading && !!user">
         <a [routerLink]="['/profile']">hey, {{user.username}}</a>
         <button (click)="triggerLogout()">Logout</button>
       </div>
-      <div *ngIf="!loading && anon" class="">
-        <a [routerLink]="['/login']">log in</a>
-        <a [routerLink]="['/signup']">signup</a>
-      </div>
-      <a [routerLink]="['/']">home</a>
+      <div class="noUser-a">
+        <div *ngIf="!loading && anon" class="">
+          <a [routerLink]="['/login']">log in</a>
+          <a [routerLink]="['/signup']">signup</a>
+        </div>
+    </div>
+     
     </div>
 
 </header>
