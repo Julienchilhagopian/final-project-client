@@ -137,7 +137,5 @@ export class ProfilePageComponent implements OnInit {
 
 
 
-// this.launchLocalisation = navigator.geolocation.watchPosition(this.success(), this.error(), this.options);
-
 
 }
