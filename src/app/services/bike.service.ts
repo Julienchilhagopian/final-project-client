@@ -37,6 +37,7 @@ export class BikeService {
 
   // }
 
+  // not used
   createBike (color: string, brand: string) {
     const options = {
       withCredentials: true
@@ -143,13 +144,14 @@ export class BikeService {
   }
 
 
-  reportOne(id, reportStatus) {
+  reportOne(id, number, reportStatus) {
     const options = {
       withCredentials: true
     };
 
     const data = {
       id,
+      number,
       reportStatus
     };
 

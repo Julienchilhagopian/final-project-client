@@ -3,11 +3,11 @@
   <h1> Add a bike </h1>
 
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="add-bike-form">
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && colorField.errors}">
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && numberField.errors}">
         <label></label>
-        <input placeholder="Bike color"  type="text" name="color" [(ngModel)]="color" #colorField="ngModel" [disabled]="processing" required/>
-        <div *ngIf="feedbackEnabled && colorField.errors">
-          <p *ngIf="colorField.errors.required" class="validation"> Please enter the color of your bike</p>
+        <input placeholder="Your phone number ex: +33698884599"  type="text" name="number" [(ngModel)]="number" #numberField="ngModel" [disabled]="processing" required/>
+        <div *ngIf="feedbackEnabled && numberField.errors">
+          <p *ngIf="numberField.errors.required" class="validation"> Please enter the color of your bike</p>
         </div>
       </div>
 

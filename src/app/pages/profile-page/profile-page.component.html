@@ -10,7 +10,6 @@
     <p>Action</p>
   </div>
     <div *ngFor="let item of bikes" class="bike-item" [ngClass]="{ 'foo': item.report}">
-      <h2>{{item.color}}</h2>
       <p>{{item.brand}}</p>
       <img src="http://localhost:3000/{{item.imageUrl}}" alt="" width="100">
       <button *ngIf="!item.parkStatus" (click)="updateBikeLocation(item._id)" class="actionButton parkButton reset-button">Park</button>

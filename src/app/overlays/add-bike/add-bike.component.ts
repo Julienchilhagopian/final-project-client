@@ -23,7 +23,7 @@ export class AddBikeComponent implements OnInit {
   error = null;
   processing = false;
 
-  color: string;
+  number: number;
   brand: string;
 
   constructor(
@@ -60,7 +60,7 @@ export class AddBikeComponent implements OnInit {
     if (form.valid) {
       this.processing = true;
       this.uploader.onBuildItemForm = (item, form2) => {
-        form2.append('color', this.color);
+        form2.append('number', this.number);
         form2.append('brand', this.brand);
       };
     }

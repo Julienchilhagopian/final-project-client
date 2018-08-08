@@ -18,17 +18,17 @@
 
       <div *ngIf="user">
         <article *ngIf="user._id != item.owner">
-          <h2>{{item.color}}</h2>
+          <img src="http://localhost:3000/{{item.imageUrl}}" alt="" width="100">
           <p>{{item.brand}}</p>
-          <button (click)="handleReport(item._id)" class="actionButton reportButton reset-button">Report</button>
+          <button (click)="handleReport(item._id, item.number)" class="actionButton reportButton reset-button">Report</button>
         </article>
      </div>
 
       <div *ngIf="!user">
         <article>
-          <h2>{{item.color}}</h2>
+          <img src="http://localhost:3000/{{item.imageUrl}}" alt="" width="100">
           <p>{{item.brand}}</p>
-          <button (click)="handleReport(item._id)" class="actionButton reportButton reset-button">Report</button>
+          <button (click)="handleReport(item._id, item.number)" class="actionButton reportButton reset-button">Report</button>
         </article>
       </div>
 

@@ -43,8 +43,8 @@ export class ReportPageComponent implements OnInit {
       this.bikeService.getAllByLocation();
   }
 
-handleReport(id) {
-  this.bikeService.reportOne(id, true);
+handleReport(id, number) {
+  this.bikeService.reportOne(id, number , true);
 }
 
 

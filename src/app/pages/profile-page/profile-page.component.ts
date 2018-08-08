@@ -63,7 +63,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   toggleReportStatus(id) {
-    this.bikeService.reportOne(id, false)
+    this.bikeService.reportOne(id, null, false)
     .then((result) => {
       this.bikeService.getMine();
     })
