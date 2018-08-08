@@ -1,3 +1,5 @@
+'use strict';
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { BikeService } from '../../services/bike.service';
@@ -8,55 +10,134 @@ import { BikeService } from '../../services/bike.service';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-bikes: any;
+  bikes: any;
+  bikeId: any;
+
+  coordinatesArray = [];
+
+  launchLocalisation: any;
+  options = {
+    enableHighAccuracy: false,
+    timeout: 60000,
+    maximumAge: 0
+  };
+  finalDistance: any;
 
   constructor(
     private authService: AuthService,
     private bikeService: BikeService
   ) {
-  this.showMyBikes();
-}
+    this.showMyBikes();
+  }
 
-ngOnInit() {
-  this.bikeService.bikesChange$.subscribe((bikes) => {
-    console.log(bikes);
+  ngOnInit() {
+    this.bikeService.bikesChange$.subscribe((bikes) => {
+      console.log(bikes);
+      if (bikes instanceof Array) {
+        this.bikes = bikes;
+      } // ERROR SOLVED
+    });
+  }
 
-    if (bikes instanceof Array) {
-      this.bikes = bikes;
-    } // ERROR SOLVED
-  });
-}
+  showMyBikes () {
+    this.bikeService.getMine()
+    .then((result) => {
+    this.bikes = result;
+    })
+    .catch(err => console.log(err));
+  }
 
-showMyBikes () {
-  this.bikeService.getMine()
-  .then((result) => {
-   this.bikes = result;
-  })
-  .catch(err => console.log(err));
-}
+  updateBikeLocation(id) {
+    this.bikeId = id;
+    this.bikeService.getBikeId(id);
+    this.bikeService.updateParkStatus(id, true);
+    this.launchLocalisation = this.bikeService.geoLocalisation(this.success.bind(this), this.error, this.options);
+  }
 
-updateBikeLocation(id) {
-  this.bikeService.getBikeId(id);
-  this.bikeService.updateParkStatus(id, true);
-}
+  updateIdForUnpark(id) {
+    this.bikeService.updateParkStatus(id, false)
+    .then((result) => {
+      this.bikeService.getMine();
+    })
+    .catch(err => console.log(err));
+  }
 
-updateIdForUnpark(id) {
-  console.log('ok');
-  this.bikeService.updateParkStatus(id, false)
-  .then((result) => {
-    this.bikeService.getMine();
-   })
-   .catch(err => console.log(err));
-}
+  toggleReportStatus(id) {
+    this.bikeService.reportOne(id, false)
+    .then((result) => {
+      this.bikeService.getMine();
+    })
+    .catch(err => console.log(err));
+  }
 
-toggleReportStatus(id) {
-  this.bikeService.reportOne(id, false)
-  .then((result) => {
-    this.bikeService.getMine();
-   })
-   .catch(err => console.log(err));
-}
 
+  // ---- AUTOMATIC UNPARK PART ---- //
+
+  distance (lat1, lon1, lat2, lon2, unit) {
+      const radlat1 = Math.PI * lat1 / 180;
+      const radlat2 = Math.PI * lat2 / 180;
+      const theta = lon1 - lon2;
+      const radtheta = Math.PI * theta / 180;
+      let dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+      if (dist > 1) {
+        dist = 1;
+      }
+      dist = Math.acos(dist);
+      dist = dist * 180 / Math.PI;
+      dist = dist * 60 * 1.1515;
+      if (unit === 'K') { dist = dist * 1.609344; }
+      if (unit === 'N') { dist = dist * 0.8684; }
+
+    this.finalDistance = dist;
+    console.log(this.finalDistance);
+  return dist;
+  }
+
+
+  success(pos) {
+    const coordinates = {
+      latitude: pos.coords.latitude,
+      longitude: pos.coords.longitude
+    };
+
+
+
+    // --- bug to resolve --- //
+
+    const testArray = [];
+
+    testArray.push(coordinates);
+
+    this.coordinatesArray.push(coordinates);
+
+    if (this.coordinatesArray.length >= 2) {
+      const pointA: any = this.coordinatesArray[0];
+      const pointB: any = this.coordinatesArray[1];
+
+      console.log(pointA, pointB);
+
+    this.distance(pointA.latitude, pointA.longitude, pointB.latitude, pointB.longitude, 'K');
+
+      if (this.finalDistance >= 0.08333) {
+
+        console.log('WOOORKIIING');
+
+        this.updateIdForUnpark(this.bikeId);
+
+        navigator.geolocation.clearWatch(this.launchLocalisation);
+      }
+      this.coordinatesArray = [];
+    }
+    console.log(this.coordinatesArray);
+  }
+
+  error(err) {
+    console.log('ERROR(' + err.code + '): ' + err.message);
+  }
+
+
+
+// this.launchLocalisation = navigator.geolocation.watchPosition(this.success(), this.error(), this.options);
 
 
 }

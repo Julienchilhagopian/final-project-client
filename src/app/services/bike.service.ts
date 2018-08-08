@@ -158,4 +158,11 @@ export class BikeService {
   }
 
 
+  geoLocalisation(success, error, options) {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(success, error, options);
+    }
+  }
+
+
 }
