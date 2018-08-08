@@ -20,8 +20,8 @@ export class ProfilePageComponent implements OnInit {
   launchLocalisation: any;
   options = {
     enableHighAccuracy: false,
-    timeout: 3000,
-    maximumAge: 0
+    timeout: 60000,
+    maximumAge: 3000
   };
   finalDistance: any;
 
