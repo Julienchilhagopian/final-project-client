@@ -2,14 +2,15 @@
 
   <div class="park-header">
     <h1>Select which bike to park</h1>
+    <p>You arrived at destination its time to park your bike on bicilante.</p>
   </div>
 
     <div *ngFor="let item of bikes" class="bike-item">
         <p>{{item.brand}}</p>
+        <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="100">
         <button *ngIf="!item.parkStatus" (click)="updateBikeLocation(item._id)" class="actionButton parkButton reset-button">PARK</button>
         <button *ngIf="item.parkStatus" (click)="updateIdForUnpark(item._id)" class="actionButton unparkButton reset-button">UNPARK</button>
       </div> 
       
     </section>
     
-    <app-bike-park-form></app-bike-park-form>

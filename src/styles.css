@@ -347,12 +347,21 @@ body {
 
 /* ---- Bike park overlay  ---- */
 
-.bike-park-overlay {
-  bottom: 31%;
-  left: 15%;
-  width: 70%;
-  height: 35%;
+.park-header {
+background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://blogmedia.evbstatic.com/wp-content/uploads/rally/2017/07/24101310/twenty20_7fb8ba9c-d4f5-45af-b601-b67a3d942f6b-1500x750.jpg);
+background-position: center;
+background-size: cover;
+height: 40vh;
+color: white;
+text-align: center;
+padding: 40px;
 }
+
+.park-header h1 {
+  margin: 0px;
+  font-size: 45px;
+}
+
 
 /* ---- Report page  ---- */
 

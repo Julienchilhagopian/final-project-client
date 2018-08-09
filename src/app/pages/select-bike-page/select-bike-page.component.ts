@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BikeService } from '../../services/bike.service';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-select-bike-page',
@@ -8,6 +9,7 @@ import { BikeService } from '../../services/bike.service';
 })
 export class SelectBikePageComponent implements OnInit {
   bikes: any;
+  baseUrl = environment.apiUrl;
 
 
   constructor(private bikeService: BikeService) {
