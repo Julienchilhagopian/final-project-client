@@ -10,7 +10,7 @@
       <input placeholder="Username" type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required [disabled]="processing"/>
      </div>
 
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
+    <div class="field password-input" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
         <label></label>
         <input placeholder="Password" type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required [disabled]="processing"/>
       </div>

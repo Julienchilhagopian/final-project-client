@@ -196,11 +196,15 @@ body {
   padding-top: 31px;
 }
 
+.auth-container h3 {
+  font-size: 23px;
+}
+
 .field input {
   outline: none;
   border: 1px solid #bebebe;
   padding: 17px 8px; 
-  margin: 10px 0px;
+  margin: 10px 0px 15px 0px;
   font-size: 15px; 
   width: 100%;
   background-color: #F3F3F3;
@@ -213,14 +217,32 @@ body {
   font-size: 15px;
 }
 
-.create-account p:first-child{
-  font-weight: bold;
+.password-input {
+  margin-bottom: 15px;
 }
 
 .create-account {
   margin-top: 50px;
 }
 
+.create-account p {
+  margin-bottom: 20px;
+}
+
+ /* signup  */
+
+.signup-btn {
+  margin-bottom: 25px;
+}
+
+.already-account {
+  text-decoration: none;
+  color: #777;
+}
+
+.validation {
+  color: indianred
+}
 /* ---- Profile page ---- */
 
 
@@ -362,10 +384,27 @@ body {
 
 /* ---- footer ---- */
 footer {
-  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
   background-color: #191919;
   color: white;
   
+}
+
+.social-logo img {
+  width: 20px;
+  margin: 0 5px 5px  5px;
+}
+
+.footer-text p {
+  margin: 0;
+  font-size: 10px;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .foo {
