@@ -5,12 +5,15 @@
     <p>You arrived at destination its time to park your bike on bicilante.</p>
   </div>
 
-    <div *ngFor="let item of bikes" class="bike-item">
-        <p>{{item.brand}}</p>
-        <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="100">
-        <button *ngIf="!item.parkStatus" (click)="updateBikeLocation(item._id)" class="actionButton parkButton reset-button">PARK</button>
+    <div *ngFor="let item of bikes" class="bike-item park-item">
+        <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="170">
+        <div *ngIf="!item.parkStatus" >
+          <button (click)="updateBikeLocation(item._id)" [disabled]="processing" class="park-page-btn-park parkButton reset-button">park</button>
+          <div *ngIf="item._id === bikeId && processing">
+            <p class="park-bike-loading">loading...</p>
+          </div>
+        </div>
         <button *ngIf="item.parkStatus" (click)="updateIdForUnpark(item._id)" class="actionButton unparkButton reset-button">UNPARK</button>
       </div> 
-      
     </section>
     

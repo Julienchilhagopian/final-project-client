@@ -10,6 +10,8 @@ import { environment } from '../../../environments/environment.prod';
 export class SelectBikePageComponent implements OnInit {
   bikes: any;
   baseUrl = environment.apiUrl;
+  processing: boolean;
+  bikeId: any;
 
 
   constructor(private bikeService: BikeService) {
@@ -25,17 +27,21 @@ export class SelectBikePageComponent implements OnInit {
       console.log(bikes);
       if (bikes instanceof Array) {
         this.bikes = bikes;
+        this.processing = false;
       }
     });
 
   }
 
   updateBikeLocation(id) {
+    this.bikeId = id;
+    this.processing = true;
     this.bikeService.getBikeId(id);
     this.bikeService.updateParkStatus(id, true);
   }
 
   updateIdForUnpark(id) {
+    this.processing = false;
     this.bikeService.updateParkStatus(id, false)
     .then((result) => {
       this.bikeService.getMine();

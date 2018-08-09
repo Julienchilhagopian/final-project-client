@@ -345,7 +345,7 @@ body {
   text-align: center;
 }
 
-/* ---- Bike park overlay  ---- */
+/* ---- Bike park page  ---- */
 
 .park-header {
 background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://blogmedia.evbstatic.com/wp-content/uploads/rally/2017/07/24101310/twenty20_7fb8ba9c-d4f5-45af-b601-b67a3d942f6b-1500x750.jpg);
@@ -362,6 +362,27 @@ padding: 40px;
   font-size: 45px;
 }
 
+
+.park-item {
+  padding: 20px 0px;
+}
+
+.park-page-btn-park {
+  border-radius: 50%;
+  height: 83px;
+  width: 85px;
+  font-size: 16px;
+  font-weight: lighter;
+  letter-spacing: 3px;
+  text-indent: 3px;
+  text-transform: uppercase;
+}
+
+
+.park-bike-loading {
+  color: #777;
+  
+}
 
 /* ---- Report page  ---- */
 
