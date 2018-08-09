@@ -91,7 +91,7 @@ export class ProfilePageComponent implements OnInit {
       if (unit === 'N') { dist = dist * 0.8684; }
 
     this.finalDistance = dist;
-    console.log(this.finalDistance);
+    console.log('Distance Point A - Point B = ' + this.finalDistance);
   return dist;
   }
 
@@ -120,7 +120,7 @@ export class ProfilePageComponent implements OnInit {
 
     this.distance(pointA.latitude, pointA.longitude, pointB.latitude, pointB.longitude, 'K');
 
-      if (this.finalDistance >= 0.25833) {
+      if (this.finalDistance >= 0.0733) {
 
         console.log('WOOORKIIING');
 
