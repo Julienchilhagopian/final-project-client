@@ -15,7 +15,7 @@ export class ReportPageComponent implements OnInit {
   bikes: any;
   user: any;
   baseUrl = environment.apiUrl;
-
+  reportProcessing: boolean;
 
   test: any;
   searchLocation: string;
@@ -31,6 +31,7 @@ export class ReportPageComponent implements OnInit {
     });
     this.bikeService.bikesChange$.subscribe((bikes) => {
       this.processing = false;
+      this.reportProcessing = false;
       if (bikes instanceof Array) {
         this.bikes = bikes;
       }
@@ -47,6 +48,7 @@ export class ReportPageComponent implements OnInit {
 
 handleReport(id, number) {
   this.bikeService.reportOne(id, number , true);
+  this.reportProcessing = true;
 }
 
 
