@@ -7,28 +7,29 @@
 
           <div class="field submit">
               <button type="submit"  class="reset-button"> Search </button>
+              <p id="loading-text" *ngIf="processing">Loading ...</p>
             </div>
   
         </form>
   </section>
 
   <!-- way to refractor this  -->
-  <section>
+  <section class="report-search">
     <div *ngFor="let item of bikes">
 
       <div *ngIf="user">
         <article *ngIf="user._id != item.owner">
-          <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="100">
-          <p>{{item.brand}}</p>
-          <button (click)="handleReport(item._id, item.number)" class="actionButton reportButton reset-button">Report</button>
+          <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="180">
+          <p>Brand : {{item.brand}}</p>
+          <button (click)="handleReport(item._id, item.number)" class="report-search-btn reportButton reset-button">Report</button>
         </article>
      </div>
 
       <div *ngIf="!user">
         <article>
-          <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="100">
-          <p>{{item.brand}}</p>
-          <button (click)="handleReport(item._id, item.number)" class="actionButton reportButton reset-button">Report</button>
+          <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="180">
+          <p>Brand : {{item.brand}}</p>
+          <button (click)="handleReport(item._id, item.number)" class="report-search-btn reportButton reset-button">Report</button>
         </article>
       </div>
 

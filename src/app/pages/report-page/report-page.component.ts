@@ -11,10 +11,11 @@ import { environment } from '../../../environments/environment.prod';
 export class ReportPageComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
-  processing = false;
+  processing: boolean;
   bikes: any;
   user: any;
   baseUrl = environment.apiUrl;
+
 
   test: any;
   searchLocation: string;
@@ -31,6 +32,7 @@ export class ReportPageComponent implements OnInit {
     });
     this.bikeService.bikesChange$.subscribe((bikes) => {
       console.log(bikes);
+      this.processing = false;
 
       if (bikes instanceof Array) {
         this.bikes = bikes;
@@ -39,6 +41,7 @@ export class ReportPageComponent implements OnInit {
   }
 
   submitReportForm(form) {
+      this.processing = true;
       this.authService.getMe();
       this.error = '';
       this.feedbackEnabled = true;

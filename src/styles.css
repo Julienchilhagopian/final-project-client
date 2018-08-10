@@ -388,9 +388,9 @@ padding: 40px;
 
 
 .report-container {
-  height: 60vh;
+  height: 50vh;
   background-color: #EFEFEF;
-  padding: 50px 0px;
+  padding: 20px 30px;
   text-align: center;
 }
 
@@ -410,8 +410,32 @@ padding: 40px;
 }
 
 
+.report-search article {
+  text-align: center;
+  padding: 31px 0px;
+  border-bottom: 1px solid grey;
+}
 
+.report-search {
+  color: #777
+}
 
+.report-container button {
+  padding: 12px 29px;
+  font-size: 16px;
+}
+
+.report-search-btn {
+  padding: 15px 30px;
+  font-size: 15px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#loading-text {
+  margin: 5px;
+}
 /* ---- footer ---- */
 footer {
   display: flex;
