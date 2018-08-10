@@ -16,7 +16,6 @@ import { ReportPageComponent } from './pages/report-page/report-page.component';
 
 // ---- OVERLAYS ---- //
 import { AddBikeComponent } from './overlays/add-bike/add-bike.component';
-import { BikeParkFormComponent } from './overlays/bike-park-form/bike-park-form.component';
 
 // --- SERVICES --- //
 import { AuthService } from './services/auth.service';
@@ -51,7 +50,6 @@ const routes: Routes = [
     AddBikeComponent,
     HomePageComponent,
     SelectBikePageComponent,
-    BikeParkFormComponent,
     ReportPageComponent
   ],
   imports: [

@@ -91,7 +91,7 @@ export class ProfilePageComponent implements OnInit {
       if (unit === 'N') { dist = dist * 0.8684; }
 
     this.finalDistance = dist;
-    console.log('Distance Point A - Point B = ' + this.finalDistance);
+    // console.log('Distance Point A - Point B = ' + this.finalDistance);
   return dist;
   }
 
@@ -107,25 +107,19 @@ export class ProfilePageComponent implements OnInit {
     // --- bug to resolve --- //
 
     const testArray = [];
-
     testArray.push(coordinates);
-
     this.coordinatesArray.push(coordinates);
 
     if (this.coordinatesArray.length >= 2) {
       const pointA: any = this.coordinatesArray[0];
       const pointB: any = this.coordinatesArray[1];
 
-      console.log(pointA, pointB);
+      // console.log(pointA, pointB);
 
     this.distance(pointA.latitude, pointA.longitude, pointB.latitude, pointB.longitude, 'K');
-
       if (this.finalDistance >= 0.0233) {
-
-        console.log('YOU ARE ON A BIIIIKE');
-
+        // console.log('YOU ARE ON A BIIIIKE');
         this.updateIdForUnpark(this.bikeId);
-
         navigator.geolocation.clearWatch(this.launchLocalisation);
       }
       this.coordinatesArray = [];

@@ -130,7 +130,7 @@ export class BikeService {
       getPosition()
         .then((position: any) => {
           const center = `latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`;
-          console.log(center);
+          // console.log(center);
           return this.httpClient.get(`${this.baseUrl}?${center}`, options)
             .toPromise()
             .then((bikes) => this.setBikes(bikes));

@@ -8,12 +8,15 @@
     <div *ngFor="let item of bikes" class="bike-item park-item">
         <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="170">
         <div *ngIf="!item.parkStatus" >
-          <button (click)="updateBikeLocation(item._id)" [disabled]="processing" class="park-page-btn-park parkButton reset-button">park</button>
-          <div *ngIf="item._id === bikeId && processing">
-            <p class="park-bike-loading">loading...</p>
-          </div>
+          <button (click)="updateBikeLocation(item._id)" [disabled]="processing" class="action-button park-button">
+              <span *ngIf="item._id === bikeId && processing">
+                <span class="park-bike-loading">parking...</span>
+              </span>
+              <span *ngIf="item._id !== bikeId || !processing">Park</span>
+          </button>
+
         </div>
-        <button *ngIf="item.parkStatus" (click)="updateIdForUnpark(item._id)" class="actionButton unparkButton reset-button">UNPARK</button>
+        <button *ngIf="item.parkStatus" (click)="updateIdForUnpark(item._id)" class="action-button unpark-button">Unpark</button>
       </div> 
     </section>
     

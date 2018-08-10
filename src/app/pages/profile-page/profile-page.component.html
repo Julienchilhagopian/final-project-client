@@ -9,16 +9,23 @@
     <p>Picture</p>
     <p>Action</p>
   </div>
-    <div *ngFor="let item of bikes" class="bike-item" [ngClass]="{ 'foo': item.report}">
-      <p>{{item.brand}}</p>
-      <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="100">
-      <button *ngIf="!item.parkStatus" (click)="updateBikeLocation(item._id)" class="actionButton parkButton reset-button">Park</button>
-      <button *ngIf="item.parkStatus" (click)="updateIdForUnpark(item._id)" class="actionButton unparkButton reset-button">Unpark</button>
-      <button *ngIf="item.report" (click)="toggleReportStatus(item._id)" class="actionButton safeButton reset-button">Safe</button>
+    <div *ngFor="let item of bikes" class="bike-item" [ngClass]="{ 'reported': item.report}">
+      <div class="unsafe" *ngIf="item.report">
+        <strong>Reported as unsafe</strong>
+        <button *ngIf="item.report" (click)="toggleReportStatus(item._id)" class="action-button safe-button">Safe</button>
+      </div>
+      <div class="details">
+        <p>{{item.brand}}</p>
+        <div class="img">
+          <img src="{{baseUrl}}/{{item.imageUrl}}" alt="">
+        </div>
+        <div class="action">
+          <button *ngIf="!item.parkStatus" (click)="updateBikeLocation(item._id)" class="action-button park-button">Park</button>
+          <button *ngIf="item.parkStatus" (click)="updateIdForUnpark(item._id)" class="action-button unpark-button">Unpark</button>
+        </div>
+      </div>
     </div> 
 </section>
 
 
 <app-add-bike></app-add-bike>
-
-<app-bike-park-form></app-bike-park-form>

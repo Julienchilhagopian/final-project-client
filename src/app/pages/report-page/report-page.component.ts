@@ -28,15 +28,12 @@ export class ReportPageComponent implements OnInit {
   ngOnInit() {
     this.authService.userChange$.subscribe((user) => {
       this.user = user;
-      console.log(user);
     });
     this.bikeService.bikesChange$.subscribe((bikes) => {
-      console.log(bikes);
       this.processing = false;
-
       if (bikes instanceof Array) {
         this.bikes = bikes;
-      } // ERROR SOLVED
+      }
     });
   }
 

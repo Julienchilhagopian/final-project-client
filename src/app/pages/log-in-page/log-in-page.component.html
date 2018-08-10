@@ -16,7 +16,7 @@
       </div>
     
     <div class="field submit">
-      <button type="submit" [disabled]="processing" class="reset-button">Log in</button>
+      <button type="submit" [disabled]="processing" class="login-button">Log in</button>
       <div *ngIf="feedbackEnabled && form.invalid">
         <p class="validation">There are errors in the form, please review the fields</p>
       </div>
@@ -31,12 +31,11 @@
 
   </form>
 
-    <div class="submit create-account">
-      <h3>New here ? </h3>
-      <p>Creating an account is easy. Just fill out the form and enjoy ! </p>
-       <a [routerLink]="['/signup']"><button class="reset-button">Create account now</button></a>
-    </div>
-
+  <div class="submit create-account">
+    <h3>New here? </h3>
+    <p>Creating an account is easy. Just fill out the form and enjoy ! </p>
+    <a [routerLink]="['/signup']" class="auth-alt-link">Create account now</a>
+  </div>
 
 </div>
 

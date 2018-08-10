@@ -4,7 +4,7 @@
         <img src="assets/images/bicilante-logo.jpg" alt="">
       </a>
       <div *ngIf="!loading && !!user" class="user-true">
-        <button (click)="triggerLogout()" class="reset-button">Logout</button>
+        <button (click)="triggerLogout()" class="logout-button">Logout</button>
         <a [routerLink]="['/profile']">Profile</a>
       </div>
     <div class="no-user-a">

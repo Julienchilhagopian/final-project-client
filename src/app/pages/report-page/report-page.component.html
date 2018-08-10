@@ -3,36 +3,39 @@
   <p>Someone is trying to steal a bike, warn the owner</p>
   <p> We use your current position to find all the bikes parked around you </p>
 
-      <form (ngSubmit)="submitReportForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+  <form (ngSubmit)="submitReportForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
-          <div class="field submit">
-              <button type="submit"  class="reset-button"> Search </button>
-              <p id="loading-text" *ngIf="processing">Loading ...</p>
-            </div>
+    <div class="field submit">
+      <button type="submit" class="search-button" [ngClass]="{processing: processing}">
+        <span *ngIf="!processing">Search</span>
+        <span *ngIf="processing">Searching ...</span>
+      </button>
+      
+    </div>
   
-        </form>
-  </section>
+  </form>
+</section>
 
-  <!-- way to refractor this  -->
-  <section class="report-search">
-    <div *ngFor="let item of bikes">
+<!-- way to refractor this  -->
+<section class="report-search">
+  <div *ngFor="let item of bikes">
 
-      <div *ngIf="user">
-        <article *ngIf="user._id != item.owner">
-          <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="180">
-          <p>Brand : {{item.brand}}</p>
-          <button (click)="handleReport(item._id, item.number)" class="report-search-btn reportButton reset-button">Report</button>
-        </article>
-     </div>
-
-      <div *ngIf="!user">
-        <article>
-          <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="180">
-          <p>Brand : {{item.brand}}</p>
-          <button (click)="handleReport(item._id, item.number)" class="report-search-btn reportButton reset-button">Report</button>
-        </article>
-      </div>
-
+    <div *ngIf="user">
+      <article *ngIf="user._id != item.owner">
+        <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="180">
+        <p>Brand : {{item.brand}}</p>
+        <button (click)="handleReport(item._id, item.number)" class="report-search-btn report-button">Report</button>
+      </article>
     </div>
 
-  </section>
+    <div *ngIf="!user">
+      <article>
+        <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="180">
+        <p>Brand : {{item.brand}}</p>
+        <button (click)="handleReport(item._id, item.number)" class="report-search-btn report-button">Report</button>
+      </article>
+    </div>
+
+  </div>
+
+</section>

@@ -36,7 +36,7 @@ export class AddBikeComponent implements OnInit {
       this.bikeService.getMine();
     };
     this.uploader.onErrorItem = (item, response, status, headers) => {
-      console.log('upload not ok');
+      console.log('upload not ok', response);
     };
   }
 

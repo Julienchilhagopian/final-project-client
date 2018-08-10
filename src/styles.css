@@ -16,10 +16,14 @@ body {
 
 /* ---- TOOLS ---- */
 
-.reset-button {
+button {
   outline: none;
   background: none;
-  border: none;
+  border: 1px solid;
+  padding: 7px 15px;
+  font-size: 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
 }
 
 .margin-reset {
@@ -79,32 +83,43 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  height: 80vh;
   justify-content: center;
+  padding-top: 20px;
+  margin-bottom: 40px;
 }
 
-.home-container button {
-  padding: 30px 70px;
-  margin-bottom: 65px;
-  border: 2px solid;
-  font-size: 25px;
-  font-weight: bold;
-  text-transform: uppercase;
+
+
+@media(min-width: 768px) {
+  .home-container {
+    flex-direction: row;
+  }
 }
+
 
 .home-container p {
-  margin: 21px 0 40px 0;
+  margin: 21px 0 20px 0;
   color: #777777;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 13px;
 }
 
-.report-div {
+.cta {
+  width: 80%;
+  max-width: 250px;
+  padding: 30px 30px;
+  margin-bottom: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.report-cta {
   color: tomato;
 }
 
-.park-div {
+.park-cta {
   color: #1DB954;
   width: 250px;
 }
@@ -114,11 +129,10 @@ body {
 
 .concept {
   background-color: #191919;
-  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 40px;
+  padding: 20px 40px 60px;
 }
 
 .concept h1, .concept p {
@@ -135,6 +149,10 @@ body {
   color: #777;
   font-size: 17px;
   padding: 10px 0px;
+}
+
+.concept .teaser {
+  font-size: 40px;
 }
 
 .concept p:last-child {
@@ -183,9 +201,9 @@ body {
 
 
 .auth-container {
+  overflow: hidden;
   padding: 0px 15px;
   background-color: #EFEFEF;
-  height: 90vh;
   color: #777777;
 }
 
@@ -223,6 +241,7 @@ body {
 
 .create-account {
   margin-top: 50px;
+  margin-bottom: 40px;
 }
 
 .create-account p {
@@ -231,14 +250,16 @@ body {
 
  /* signup  */
 
-.signup-btn {
+
+
+.signup-button {
   margin-bottom: 25px;
 }
 
-.already-account {
-  text-decoration: none;
-  color: #777;
+.auth-alt-link {
+  color: black;
 }
+
 
 .validation {
   color: indianred
@@ -275,30 +296,64 @@ body {
 }
 
 .bike-item {
+  padding: 10px;
   border-bottom: 1px solid #dcdcdc; 
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
-.actionButton {
+.reported {
+  background-color: salmon;
+}
+
+.bike-item .unsafe,
+.bike-item .details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bike-item .unsafe {
+  margin-bottom: 10px;
+}
+
+.bike-item .details img {
+  width: 100%;
+}
+
+.bike-item .details p,
+.bike-item .details .img {
+  padding-right: 30px;
+}
+
+.bike-item .details p,
+.bike-item .details .img,
+.bike-item .details .action {
+  flex: 1;
+}
+
+.safe-button {
+  width: 100px;
+}
+
+
+.action-button {
+  width: 100px;
   padding: 7px 15px;
   font-size: 13px;
   border-radius: 3px;
   text-transform: uppercase;
 }
 
-.parkButton {
+.park-button {
   border: 1px solid #1DB954;
   color: #1DB954;
 }
 
-.unparkButton {
+.unpark-button {
   border: 1px solid #b9511d;
   color: #b9511d;
 }
 
-.safeButton {
+.safe-button {
   background-color: #1DB954;
   color: white;
 }
@@ -352,36 +407,23 @@ body {
 /* ---- Bike park page  ---- */
 
 .park-header {
-background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://blogmedia.evbstatic.com/wp-content/uploads/rally/2017/07/24101310/twenty20_7fb8ba9c-d4f5-45af-b601-b67a3d942f6b-1500x750.jpg);
-background-position: center;
-background-size: cover;
-height: 40vh;
-color: white;
-text-align: center;
-padding: 40px;
+  background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://blogmedia.evbstatic.com/wp-content/uploads/rally/2017/07/24101310/twenty20_7fb8ba9c-d4f5-45af-b601-b67a3d942f6b-1500x750.jpg);
+  background-position: center;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding: 30px 10px 20px;
 }
 
 .park-header h1 {
   margin: 0px;
-  font-size: 45px;
+  font-size: 24px;
 }
 
 
 .park-item {
   padding: 20px 0px;
 }
-
-.park-page-btn-park {
-  border-radius: 50%;
-  height: 83px;
-  width: 85px;
-  font-size: 16px;
-  font-weight: lighter;
-  letter-spacing: 3px;
-  text-indent: 3px;
-  text-transform: uppercase;
-}
-
 
 .park-bike-loading {
   color: #777;
@@ -408,7 +450,7 @@ padding: 40px;
   color: #777;
 }
 
-.reportButton {
+.report-button {
   background-color: #b92a1d;
   color: white;
 }
@@ -437,9 +479,6 @@ padding: 40px;
   letter-spacing: 2px;
 }
 
-#loading-text {
-  margin: 5px;
-}
 /* ---- footer ---- */
 footer {
   display: flex;
@@ -465,6 +504,3 @@ footer {
   letter-spacing: 1px;
 }
 
-.foo {
-  background-color: salmon;
-}
