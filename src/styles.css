@@ -345,6 +345,10 @@ body {
   text-align: center;
 }
 
+.image-upload {
+  width: 218px;
+}
+
 /* ---- Bike park page  ---- */
 
 .park-header {

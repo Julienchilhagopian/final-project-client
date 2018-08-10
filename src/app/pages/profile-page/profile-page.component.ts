@@ -34,7 +34,7 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit() {
     this.bikeService.bikesChange$.subscribe((bikes) => {
-      console.log(bikes);
+      // console.log(bikes);
       if (bikes instanceof Array) {
         this.bikes = bikes;
       } // ERROR SOLVED
