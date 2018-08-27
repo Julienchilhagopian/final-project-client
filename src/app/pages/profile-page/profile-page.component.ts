@@ -53,7 +53,7 @@ export class ProfilePageComponent implements OnInit {
     this.bikeId = id;
     this.bikeService.getBikeId(id);
     this.bikeService.updateParkStatus(id, true);
-    this.launchLocalisation = this.bikeService.geoLocalisation(this.success.bind(this), this.error, this.options);
+    // this.launchLocalisation = this.bikeService.geoLocalisation(this.success.bind(this), this.error, this.options);
   }
 
   updateIdForUnpark(id) {
