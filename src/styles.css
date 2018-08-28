@@ -47,7 +47,7 @@ button {
   color: white;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .no-user-a {
@@ -57,6 +57,7 @@ button {
 .navbar img {
   width: 185px;
   padding-left: 8px;
+  margin-right: 20px;
 }
 
 .spacer {
@@ -67,13 +68,13 @@ button {
 .user-true button {
   color: white;
   text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  padding: 7px 8px;
 }
 
 .user-true a {
   font-size: 13px;
-  padding: 0 7px;
+  padding: 0 11px;
 }
 
 
