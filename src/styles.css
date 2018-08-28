@@ -66,7 +66,7 @@ button {
 }
 
 .user-true button {
-  color: white;
+  color: #777;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 7px 8px;
@@ -362,14 +362,14 @@ button {
 
 /* ---- Add bike overlay  ---- */
 .add-bike-overlay {
-  border: 1px solid #dcdcdc;
-  background-color: #F3F3F3;
-  border-radius: 5px;
+  border: 1px solid #77777780;
+  border-radius: 3px;
+  background-color: #f3f3f3f2;
   padding: 7px;
-  width: 60%;
+  width: 65%;
   position: fixed;
   bottom: 3%;
-  left: 20%;
+  left: 15%;
 }
 
 .add-bike-overlay h1 {
@@ -379,6 +379,8 @@ button {
 .add-bike-form input {
   background-color: white;
   padding: 12px 8px;
+  border: none;
+  margin: 10px 0px 10px 0px;
 }
 
 
@@ -402,7 +404,7 @@ button {
 }
 
 .image-upload {
-  width: 218px;
+  width: 228px;
 }
 
 /* ---- Bike park page  ---- */
