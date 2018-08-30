@@ -303,8 +303,21 @@ button {
   border-bottom: 1px solid #dcdcdc; 
 }
 
-.reported {
-  background-color: salmon;
+
+.unsafe {
+  background-color: rgb(202, 17, 51);
+  padding: 10px;
+  color: white;
+}
+
+.unsafe strong {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.unsafe-border {
+  border: 1px solid rgb(202, 17, 51);
+  padding: 10px;
 }
 
 .bike-item .unsafe,
@@ -312,10 +325,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.bike-item .unsafe {
-  margin-bottom: 10px;
 }
 
 .bike-item .details img {
@@ -335,6 +344,7 @@ button {
 
 .safe-button {
   width: 100px;
+  border: none;
 }
 
 

@@ -14,9 +14,12 @@
               </span>
               <span *ngIf="item._id !== bikeId || !processing">Park</span>
           </button>
-
         </div>
-        <button *ngIf="item.parkStatus" (click)="updateIdForUnpark(item._id)" class="action-button unpark-button">Unpark</button>
+
+        <div>
+          <button *ngIf="item.parkStatus" (click)="updateIdForUnpark(item._id)" class="action-button unpark-button">Unpark</button>
+      </div>
+      
       </div> 
     </section>
     

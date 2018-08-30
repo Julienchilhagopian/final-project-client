@@ -9,12 +9,12 @@
     <p>Picture</p>
     <p>Action</p>
   </div>
-    <div *ngFor="let item of bikes" class="bike-item" [ngClass]="{ 'reported': item.report}">
+    <div *ngFor="let item of bikes" class="bike-item">
       <div class="unsafe" *ngIf="item.report">
         <strong>Reported as unsafe</strong>
         <button *ngIf="item.report" (click)="toggleReportStatus(item._id)" class="action-button safe-button">Safe</button>
       </div>
-      <div class="details">
+      <div class="details" [ngClass]="{ 'unsafe-border': item.report}">
         <p>{{item.brand}}</p>
         <div class="img">
           <img src="{{baseUrl}}/{{item.imageUrl}}" alt="">

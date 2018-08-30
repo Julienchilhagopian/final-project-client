@@ -1,7 +1,7 @@
 <section class="report-container">
   <h1> Report </h1>
-  <p>Someone is trying to steal a bike, warn the owner</p>
-  <p> We use your current position to find all the bikes parked around you </p>
+  <p>Someone is trying to steal a bike, warn the owner.</p>
+  <p> We use your current position to find all the bikes parked around you. </p>
 
   <form (ngSubmit)="submitReportForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
@@ -10,7 +10,6 @@
         <span *ngIf="!processing">Search</span>
         <span *ngIf="processing">Searching ...</span>
       </button>
-      
     </div>
   
   </form>
@@ -43,5 +42,4 @@
     </div>
 
   </div>
-
 </section>
