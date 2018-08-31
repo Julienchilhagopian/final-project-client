@@ -274,7 +274,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background:linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(https://uptownalmanac.com/sites/default/files/styles/full-post-width/public/images-on-cdn/blue-bottle-pile.jpg);
+  background:linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(assets/images/profile-page-background.jpg);
   background-position: center;
   background-size: cover;
   color: white;
@@ -422,7 +422,7 @@ button {
 /* ---- Bike park page  ---- */
 
 .park-header {
-  background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://blogmedia.evbstatic.com/wp-content/uploads/rally/2017/07/24101310/twenty20_7fb8ba9c-d4f5-45af-b601-b67a3d942f6b-1500x750.jpg);
+  background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(assets/images/park-page-background.jpg);
   background-position: center;
   background-size: cover;
   color: white;
