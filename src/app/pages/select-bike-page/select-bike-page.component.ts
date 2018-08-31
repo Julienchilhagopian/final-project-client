@@ -24,7 +24,6 @@ export class SelectBikePageComponent implements OnInit {
 
   ngOnInit() {
     this.bikeService.bikesChange$.subscribe((bikes) => {
-      console.log(bikes);
       if (bikes instanceof Array) {
         this.bikes = bikes;
         this.processing = false;

@@ -9,16 +9,12 @@ import { environment } from '../../../environments/environment.prod';
   styleUrls: ['./report-page.component.css']
 })
 export class ReportPageComponent implements OnInit {
-  feedbackEnabled = false;
-  error = null;
   processing: boolean;
   bikes: any;
   user: any;
-  baseUrl = environment.apiUrl;
   reportProcessing: boolean;
 
-  test: any;
-  searchLocation: string;
+  baseUrl = environment.apiUrl;
 
   constructor(
     private bikeService: BikeService,
@@ -41,8 +37,6 @@ export class ReportPageComponent implements OnInit {
   submitReportForm(form) {
       this.processing = true;
       this.authService.getMe();
-      this.error = '';
-      this.feedbackEnabled = true;
       this.bikeService.getAllByLocation();
   }
 
