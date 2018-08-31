@@ -15,6 +15,11 @@
   </form>
 </section>
 
+<section *ngIf="!bikes" class="search-info">
+  <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png" alt="">
+  <p>Click on the search button, you will find the bikes close to you here !</p>
+</section>
+
 <!-- way to refractor this  -->
 <section class="report-search">
   <div *ngFor="let item of bikes">

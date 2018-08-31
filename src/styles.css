@@ -454,7 +454,6 @@ button {
 
 
 .report-container {
-  height: 50vh;
   background-color: #EFEFEF;
   padding: 20px 30px;
   text-align: center;
@@ -497,6 +496,21 @@ button {
   border-radius: 3px;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+.search-info {
+  text-align: center;
+  padding: 65px;
+}
+
+.search-info img {
+  width: 75px;
+  opacity: 0.6;
+}
+
+.search-info p {
+  color: #777777b0;
+  font-size: 13px;
 }
 
 /* ---- footer ---- */
