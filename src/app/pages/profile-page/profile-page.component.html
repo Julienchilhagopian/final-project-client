@@ -20,8 +20,17 @@
           <img src="{{baseUrl}}/{{item.imageUrl}}" alt="">
         </div>
         <div class="action">
-          <button *ngIf="!item.parkStatus" (click)="updateBikeLocation(item._id)" class="action-button park-button">Park</button>
-          <button *ngIf="item.parkStatus" (click)="updateIdForUnpark(item._id)" class="action-button unpark-button">Unpark</button>
+          <div *ngIf="!item.parkStatus">
+              <button (click)="updateBikeLocation(item._id)" [disabled]="processing" class="action-button park-button">
+                  <span *ngIf="item._id === bikeId && processing">
+                    <span class="park-bike-loading">parking...</span>
+                  </span>
+                  <span *ngIf="item._id !== bikeId || !processing">Park</span>
+              </button>
+          </div>
+          <div *ngIf="item.parkStatus">
+            <button (click)="updateIdForUnpark(item._id)" class="action-button unpark-button">Unpark</button>
+          </div> 
         </div>
       </div>
     </div> 

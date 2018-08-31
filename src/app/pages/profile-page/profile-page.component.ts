@@ -14,6 +14,7 @@ export class ProfilePageComponent implements OnInit {
   bikes: any;
   bikeId: any;
   baseUrl = environment.apiUrl;
+  processing: boolean;
 
   coordinatesArray = [];
 
@@ -37,7 +38,8 @@ export class ProfilePageComponent implements OnInit {
       // console.log(bikes);
       if (bikes instanceof Array) {
         this.bikes = bikes;
-      } // ERROR SOLVED
+        this.processing = false;
+      }
     });
   }
 
@@ -51,12 +53,14 @@ export class ProfilePageComponent implements OnInit {
 
   updateBikeLocation(id) {
     this.bikeId = id;
+    this.processing = true;
     this.bikeService.getBikeId(id);
     this.bikeService.updateParkStatus(id, true);
     // this.launchLocalisation = this.bikeService.geoLocalisation(this.success.bind(this), this.error, this.options);
   }
 
   updateIdForUnpark(id) {
+    this.processing = false;
     this.bikeService.updateParkStatus(id, false)
     .then((result) => {
       this.bikeService.getMine();
@@ -102,9 +106,6 @@ export class ProfilePageComponent implements OnInit {
       longitude: pos.coords.longitude
     };
 
-
-
-    // --- bug to resolve --- //
 
     const testArray = [];
     testArray.push(coordinates);
