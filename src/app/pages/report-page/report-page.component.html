@@ -39,10 +39,10 @@
       <article>
         <img src="{{baseUrl}}/{{item.imageUrl}}" alt="" width="180">
         <p>Brand : {{item.brand}}</p>
-        <button (click)="handleReport(item._id, item.number)" class="report-search-btn report-button">
-            <span *ngIf="!reportProcessing">Report</span>
-            <span *ngIf="reportProcessing">Reporting ...</span>
-        </button>
+          <button (click)="handleReport(item._id, item.number)" class="report-search-btn report-button">
+              <span *ngIf="!reportProcessing">Report</span>
+              <span *ngIf="reportProcessing">Reporting ...</span>
+          </button>
       </article>
     </div>
 
